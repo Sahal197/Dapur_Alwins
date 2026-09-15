@@ -432,3 +432,20 @@ window.applyRemoteOrders = function(remoteOrders){
   orders = remoteOrders;
   window.orders = orders;
   localStorage.setItem("dapur_alwins_orders", JSON.stringify(orders));
+  render();
+};
+
+window.startApp = function(){
+  if(appStarted) return;
+  appStarted = true;
+  addProductLine();
+  render();
+};
+
+// Auto start kalau user sudah login (refresh halaman)
+if(window.firebaseAuth && window.firebaseAuth.currentUser){
+  window.startApp();
+}
+</script>
+</body>
+</html>
