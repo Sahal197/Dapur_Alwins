@@ -8,24 +8,25 @@
 <style>
 :root{--bg:#f6f7fb;--card:#fff;--text:#172033;--muted:#697386;--line:#e5e7eb;--primary:#e85d3f;--primary2:#c94b31;--good:#15803d;--warn:#b45309;--danger:#b91c1c;--shadow:0 8px 28px rgba(23,32,51,.07)}
 [data-theme=dark]{--bg:#111827;--card:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--line:#374151;--shadow:0 8px 28px rgba(0,0,0,.25)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
 button,input,select,textarea{font:inherit}button{cursor:pointer}
-header{position:sticky;top:0;z-index:10;background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;gap:12px;align-items:center}
+header{position:sticky;top:0;z-index:10;background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;gap:12px;align-items:center;min-width:0;flex:1}
 .logo{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;flex-shrink:0;box-shadow:0 4px 12px rgba(232,93,63,.3)}
 .logo img{width:100%;height:100%;object-fit:cover;display:block}
-.brand h1{font-size:18px;margin:0}.brand small{color:var(--muted)}
-.actions{display:flex;gap:8px;align-items:center}.btn{border:1px solid var(--line);background:var(--card);color:var(--text);padding:9px 13px;border-radius:10px}.btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}.btn.danger{color:var(--danger)}
+.brand h1{font-size:18px;margin:0;white-space:nowrap}.brand small{color:var(--muted);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.actions{display:flex;gap:8px;align-items:center;flex-shrink:0}.btn{border:1px solid var(--line);background:var(--card);color:var(--text);padding:9px 13px;border-radius:10px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}.btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}.btn.primary:hover{background:var(--primary2)}.btn.danger{color:var(--danger)}.btn svg{width:16px;height:16px;flex-shrink:0}
 .container{max-width:1250px;margin:auto;padding:22px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}.stat{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px;box-shadow:var(--shadow)}.stat span{color:var(--muted);font-size:13px}.stat b{display:block;font-size:24px;margin-top:5px}
-.grid{display:grid;grid-template-columns:390px 1fr;gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);padding:18px}.card h2{font-size:16px;margin:0 0 15px}
+.grid{display:grid;grid-template-columns:390px 1fr;gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);padding:18px;min-width:0}.card h2{font-size:16px;margin:0 0 15px;display:flex;align-items:center;gap:8px}
 label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,select,textarea{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--text);outline:none}input:focus,select:focus,textarea:focus{border-color:var(--primary)}textarea{min-height:70px;resize:vertical}
-.product-row{display:grid;grid-template-columns:1fr 75px 105px 34px;gap:7px;margin-bottom:8px;align-items:center}.product-row input{min-width:0}.remove{border:0;background:transparent;color:var(--danger);font-size:20px}.addline{margin:5px 0 12px}.total{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--line);padding-top:13px;margin-top:13px;font-size:18px}.total b{color:var(--primary)}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:13px}.toolbar input{max-width:300px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}th{color:var(--muted);font-weight:650;background:var(--bg)}.status{border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700;display:inline-block}.baru{background:#dbeafe;color:#1d4ed8}.diproses{background:#fef3c7;color:#92400e}.dikirim{background:#e0e7ff;color:#4338ca}.selesai{background:#dcfce7;color:#166534}.dibatalkan{background:#fee2e2;color:#991b1b}.empty{text-align:center;color:var(--muted);padding:30px}
+.product-row{display:grid;grid-template-columns:1fr 70px 95px 34px;gap:7px;margin-bottom:8px;align-items:center}.product-row input{min-width:0}.remove{border:0;background:transparent;color:var(--danger);font-size:22px;padding:0;line-height:1;width:34px;height:34px;display:grid;place-items:center;border-radius:8px}.remove:hover{background:#fee2e2}.addline{margin:5px 0 12px}.total{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--line);padding-top:13px;margin-top:13px;font-size:18px}.total b{color:var(--primary)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:13px}.toolbar input{max-width:300px;min-width:200px;flex:1}.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}table{width:100%;border-collapse:collapse;min-width:760px}th,td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}th{color:var(--muted);font-weight:650;background:var(--bg);white-space:nowrap}td{vertical-align:top}.status{border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700;display:inline-block;border:0;cursor:pointer;font-family:inherit}.baru{background:#dbeafe;color:#1d4ed8}.diproses{background:#fef3c7;color:#92400e}.dikirim{background:#e0e7ff;color:#4338ca}.selesai{background:#dcfce7;color:#166534}.dibatalkan{background:#fee2e2;color:#991b1b}.empty{text-align:center;color:var(--muted);padding:30px}
 .tabs{display:flex;gap:6px;margin-bottom:12px}.tab{border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 12px;border-radius:9px}.tab.active{background:var(--text);color:var(--card)}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:15px;z-index:20}.modal.show{display:flex}.modalbox{background:var(--card);color:var(--text);width:min(680px,100%);max-height:90vh;overflow:auto;border-radius:16px;padding:20px}.close{float:right;border:0;background:transparent;color:var(--muted);font-size:24px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:15px;z-index:20}.modal.show{display:flex}.modalbox{background:var(--card);color:var(--text);width:min(680px,100%);max-height:90vh;overflow:auto;border-radius:16px;padding:20px}.close{float:right;border:0;background:transparent;color:var(--muted);font-size:24px;cursor:pointer;padding:0;line-height:1}
 .note{font-size:12px;color:var(--muted);line-height:1.5}.footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
-#loginScreen{position:fixed;inset:0;background:linear-gradient(135deg,#e85d3f,#f59e0b);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px}
-.loginbox{background:#fff;color:#172033;border-radius:20px;padding:32px;width:min(400px,100%);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+/* Login Screen */
+#loginScreen{position:fixed;inset:0;background:linear-gradient(135deg,#e85d3f,#f59e0b);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px;overflow-y:auto}
+.loginbox{background:#fff;color:#172033;border-radius:20px;padding:32px;width:min(400px,100%);box-shadow:0 20px 60px rgba(0,0,0,.25);margin:auto}
 .loginbox .logo{width:110px;height:110px;margin:0 auto 16px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;box-shadow:0 8px 24px rgba(232,93,63,.35);border:4px solid #fff}
 .loginbox .logo img{width:100%;height:100%;object-fit:cover;display:block}
 .loginbox h2{text-align:center;margin:0 0 6px;font-size:22px}
@@ -37,8 +38,55 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 .loginerror{background:#fee2e2;color:#991b1b;padding:10px;border-radius:8px;font-size:13px;margin-bottom:12px;display:none}
 .loginsuccess{background:#dcfce7;color:#166534;padding:10px;border-radius:8px;font-size:13px;margin-bottom:12px;display:none}
 #appContent{display:none}
-@media(max-width:900px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){header{padding:12px}.container{padding:12px}.stats{gap:8px}.stat{padding:12px}.stat b{font-size:19px}.actions .label{display:none}.product-row{grid-template-columns:1fr 62px 90px 25px}.brand small{display:none}.loginbox .logo{width:90px;height:90px}}
+/* Modal produk */
+.catalog-row{display:grid;grid-template-columns:1fr 130px 40px;gap:8px;margin-bottom:8px;align-items:center}
+.catalog-row input{min-width:0}
+.btn-del-cat{border:0;background:#fee2e2;color:var(--danger);border-radius:8px;width:40px;height:40px;display:grid;place-items:center;cursor:pointer;font-size:18px;line-height:1}
+.btn-del-cat:hover{background:#fecaca}
+
+/* ==== RESPONSIVE ==== */
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  header{padding:10px 12px;gap:8px}
+  .container{padding:12px}
+  .stats{gap:8px;margin-bottom:12px}
+  .stat{padding:12px}
+  .stat span{font-size:11px}
+  .stat b{font-size:19px}
+  .card{padding:14px;border-radius:12px}
+  .card h2{font-size:15px;margin-bottom:12px}
+  .actions .label{display:none}
+  .actions .btn{padding:8px 10px;font-size:13px}
+  .brand h1{font-size:15px}
+  .brand small{font-size:11px}
+  .logo{width:40px;height:40px}
+  .product-row{grid-template-columns:1fr 60px 85px 32px;gap:6px}
+  .product-row input,.product-row select{font-size:13px;padding:9px 8px}
+  .product-row input[type=number]{text-align:center}
+  .catalog-row{grid-template-columns:1fr 90px 36px}
+  .catalog-row input{font-size:13px}
+  .btn-del-cat{width:36px;height:36px;font-size:16px}
+  .toolbar input{max-width:none}
+  .tabs{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}
+  .tab{flex-shrink:0}
+  table{min-width:640px;font-size:12px}
+  th,td{padding:8px 6px}
+  .modalbox{padding:16px;border-radius:14px}
+  .loginbox{padding:24px 20px;border-radius:16px}
+  .loginbox .logo{width:85px;height:85px}
+  .loginbox h2{font-size:19px}
+  .footer{font-size:11px;padding:14px}
+  #loginScreen{padding:12px}
+}
+@media(max-width:380px){
+  .product-row{grid-template-columns:1fr 55px 75px 30px;gap:5px}
+  .product-row input,.product-row select{font-size:12px;padding:8px 6px}
+  .stat b{font-size:17px}
+  .btn{padding:7px 9px;font-size:12px}
+}
 </style>
 </head>
 <body>
@@ -46,7 +94,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 <div id="loginScreen">
   <div class="loginbox">
     <div class="logo">
-      <img src="logo.jpeg" alt="Logo Dapur Alwin's" onerror="this.style.display='none';this.parentElement.innerHTML='DA'">
+      <img src="logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='DA'">
     </div>
     <h2>Dapur Alwin's</h2>
     <p>Masuk untuk mengelola pesanan</p>
@@ -69,15 +117,24 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 <header>
   <div class="brand">
     <div class="logo">
-      <img src="logo.jpeg" alt="Logo Dapur Alwin's" onerror="this.style.display='none';this.parentElement.innerHTML='DA'">
+      <img src="logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='DA'">
     </div>
-    <div><h1>Dapur Alwin's</h1><small id="adminEmailLabel">Pencatatan pesanan UMKM</small></div>
+    <div style="min-width:0"><h1>Dapur Alwin's</h1><small id="adminEmailLabel">Memuat…</small></div>
   </div>
   <div class="actions">
-    <span id="firebaseStatus" class="note" style="align-self:center">● Menghubungkan…</span>
-    <button class="btn" onclick="toggleTheme()">◐ <span class="label">Mode</span></button>
-    <button class="btn" onclick="openSettings()">⚙ <span class="label">Produk</span></button>
-    <button class="btn danger" onclick="logout()">⎋ <span class="label">Keluar</span></button>
+    <span id="firebaseStatus" class="note">● …</span>
+    <button class="btn" onclick="toggleTheme()" title="Ganti tema">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <span class="label">Mode</span>
+    </button>
+    <button class="btn" onclick="openSettings()" title="Kelola produk">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+      <span class="label">Produk</span>
+    </button>
+    <button class="btn danger" onclick="logout()" title="Keluar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      <span class="label">Keluar</span>
+    </button>
   </div>
 </header>
 <main class="container">
@@ -90,17 +147,26 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 
   <div class="grid">
     <section class="card">
-      <h2>＋ Pesanan Baru</h2>
+      <h2>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Pesanan Baru
+      </h2>
       <form id="orderForm">
         <label>Nama pelanggan *</label><input id="customer" required placeholder="Contoh: Budi Santoso">
         <label>Nomor HP</label><input id="phone" inputmode="tel" placeholder="08xxxxxxxxxx">
         <label>Alamat pengiriman</label><textarea id="address" placeholder="Alamat lengkap pelanggan"></textarea>
         <label>Produk</label>
         <div id="products"></div>
-        <button type="button" class="btn addline" onclick="addProductLine()">＋ Tambah produk</button>
+        <button type="button" class="btn addline" onclick="addProductLine()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+          Tambah produk
+        </button>
         <div class="total"><span>Total</span><b id="formTotal">Rp0</b></div>
         <label>Catatan khusus</label><textarea id="notes" placeholder="Contoh: tanpa sambal, kirim sore..."></textarea>
-        <button class="btn primary" style="width:100%;margin-top:14px">Simpan Pesanan</button>
+        <button class="btn primary" style="width:100%;margin-top:14px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Simpan Pesanan
+        </button>
       </form>
     </section>
 
@@ -117,24 +183,39 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
       <div class="tablewrap"><table><thead><tr><th>Pesanan</th><th>Pelanggan</th><th>Produk</th><th>Total</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="orderList"></tbody></table></div>
     </section>
   </div>
-  <div class="footer">Data pesanan disimpan di Firebase Firestore dan disinkronkan realtime antar perangkat.</div>
+  <div class="footer">Data pesanan & produk disimpan di Firebase Firestore dan disinkronkan realtime antar perangkat.</div>
 </main>
 
-<div class="modal" id="settings"><div class="modalbox"><button class="close" onclick="closeSettings()">×</button><h2>Daftar Produk & Harga</h2><p class="note"><b>Firebase:</b> konfigurasi ada di bagian <code>FIREBASE CONFIG</code> pada kode HTML. Produk di bawah dipakai untuk menghitung total otomatis. Anda dapat mengubah atau menambah produk.</p><div id="productSettings"></div><button class="btn" onclick="addCatalog()">＋ Tambah produk</button><button class="btn primary" onclick="saveCatalog()" style="float:right">Simpan</button></div></div>
+<div class="modal" id="settings">
+  <div class="modalbox">
+    <button class="close" onclick="closeSettings()">×</button>
+    <h2>Daftar Produk & Harga</h2>
+    <p class="note"><b>Catatan:</b> produk di sini tersimpan di Firebase (cloud), jadi otomatis tersinkron ke semua perangkat yang login.</p>
+    <div id="productSettings"></div>
+    <div style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap">
+      <button class="btn" onclick="addCatalog()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M12 5v14M5 12h14"/></svg>
+        Tambah produk
+      </button>
+      <button class="btn primary" onclick="saveCatalog()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Simpan ke Firebase
+      </button>
+    </div>
+  </div>
+</div>
 </div>
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
   import {
-    getFirestore, collection, addDoc, onSnapshot, updateDoc, doc
+    getFirestore, collection, addDoc, onSnapshot, updateDoc, doc,
+    setDoc, deleteDoc, getDoc
   } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
   import {
     getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence
   } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
-  // ============================================================
-  // FIREBASE CONFIG - JANGAN DIUBAH, INI YANG SUDAH BERHASIL LOGIN
-  // ============================================================
   const firebaseConfig = {
     apiKey: "AIzaSyBg_c8rvyzUGTP2doDa3ss-OzrckVoFvwc",
     authDomain: "dapur-alwins.firebaseapp.com",
@@ -153,6 +234,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   window.firebaseDb = db;
   window.firebaseAuth = auth;
   window.firebaseOrdersUnsubscribe = null;
+  window.firebaseCatalogUnsubscribe = null;
 
   const loginScreen  = document.getElementById("loginScreen");
   const appContent   = document.getElementById("appContent");
@@ -164,73 +246,40 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   const loginSuccess = document.getElementById("loginSuccess");
   const adminEmailLabel = document.getElementById("adminEmailLabel");
 
-  function showLoginError(msg){
-    loginError.textContent = msg;
-    loginError.style.display = "block";
-    loginSuccess.style.display = "none";
-  }
-  function showLoginSuccess(msg){
-    loginSuccess.textContent = msg;
-    loginSuccess.style.display = "block";
-    loginError.style.display = "none";
-  }
-  function hideLoginMessages(){
-    loginError.style.display = "none";
-    loginSuccess.style.display = "none";
-  }
+  function showLoginError(msg){loginError.textContent=msg;loginError.style.display="block";loginSuccess.style.display="none"}
+  function showLoginSuccess(msg){loginSuccess.textContent=msg;loginSuccess.style.display="block";loginError.style.display="none"}
+  function hideLoginMessages(){loginError.style.display="none";loginSuccess.style.display="none"}
 
   loginForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    hideLoginMessages();
-    loginBtn.disabled = true;
-    loginBtn.textContent = "Memproses…";
+    e.preventDefault(); hideLoginMessages();
+    loginBtn.disabled = true; loginBtn.textContent = "Memproses…";
     try {
       await setPersistence(auth, browserLocalPersistence);
-      const cred = await signInWithEmailAndPassword(
-        auth,
-        loginEmail.value.trim(),
-        loginPassword.value
-      );
+      const cred = await signInWithEmailAndPassword(auth, loginEmail.value.trim(), loginPassword.value);
       console.log("Login sukses:", cred.user.email);
       showLoginSuccess("Login berhasil! Mengalihkan…");
     } catch (err) {
       console.error("Login error:", err.code, err.message);
       let msg = "Gagal masuk: " + (err.message || "Unknown error");
-      if (err.code === "auth/invalid-credential" || err.code === "auth/wrong-password")
-        msg = "❌ Email atau password salah. Cek kembali.";
-      else if (err.code === "auth/user-not-found")
-        msg = "❌ Email tidak terdaftar di Firebase Authentication.";
-      else if (err.code === "auth/too-many-requests")
-        msg = "❌ Terlalu banyak percobaan gagal. Tunggu beberapa menit.";
-      else if (err.code === "auth/invalid-email")
-        msg = "❌ Format email tidak valid.";
-      else if (err.code === "auth/network-request-failed")
-        msg = "❌ Koneksi internet bermasalah. Cek jaringan Anda.";
-      else if (err.code === "auth/operation-not-allowed")
-        msg = "❌ Provider Email/Password belum diaktifkan di Firebase Console.";
-      else if (err.code === "auth/api-key-not-valid" || err.message?.includes("api-key-not-valid"))
-        msg = "❌ API Key Firebase tidak valid. Copy ulang firebaseConfig dari Firebase Console.";
-      else if (err.code === "auth/unauthorized-domain")
-        msg = "❌ Domain ini belum diizinkan. Tambahkan di Firebase → Authentication → Settings → Authorized domains.";
+      if (err.code === "auth/invalid-credential" || err.code === "auth/wrong-password") msg = "❌ Email atau password salah.";
+      else if (err.code === "auth/user-not-found") msg = "❌ Email tidak terdaftar.";
+      else if (err.code === "auth/too-many-requests") msg = "❌ Terlalu banyak percobaan. Tunggu beberapa menit.";
+      else if (err.code === "auth/invalid-email") msg = "❌ Format email tidak valid.";
+      else if (err.code === "auth/network-request-failed") msg = "❌ Koneksi internet bermasalah.";
+      else if (err.code === "auth/operation-not-allowed") msg = "❌ Provider Email/Password belum diaktifkan.";
+      else if (err.code === "auth/api-key-not-valid" || err.message?.includes("api-key-not-valid")) msg = "❌ API Key Firebase tidak valid.";
+      else if (err.code === "auth/unauthorized-domain") msg = "❌ Domain belum diizinkan di Firebase.";
       showLoginError(msg);
-    } finally {
-      loginBtn.disabled = false;
-      loginBtn.textContent = "Masuk";
-    }
+    } finally { loginBtn.disabled = false; loginBtn.textContent = "Masuk"; }
   });
 
   window.logout = async function(){
     if (!confirm("Yakin ingin keluar dari panel admin?")) return;
     try {
-      if (window.firebaseOrdersUnsubscribe) {
-        window.firebaseOrdersUnsubscribe();
-        window.firebaseOrdersUnsubscribe = null;
-      }
+      if (window.firebaseOrdersUnsubscribe) { window.firebaseOrdersUnsubscribe(); window.firebaseOrdersUnsubscribe = null; }
+      if (window.firebaseCatalogUnsubscribe) { window.firebaseCatalogUnsubscribe(); window.firebaseCatalogUnsubscribe = null; }
       await signOut(auth);
-    } catch (err) {
-      console.error(err);
-      alert("Gagal keluar: " + err.message);
-    }
+    } catch (err) { console.error(err); alert("Gagal keluar: " + err.message); }
   };
 
   onAuthStateChanged(auth, (user) => {
@@ -239,17 +288,17 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
       appContent.style.display = "block";
       adminEmailLabel.textContent = "Login sebagai " + (user.email || "admin");
       startFirestoreSync();
+      startCatalogSync();
       if (typeof window.startApp === "function") window.startApp();
     } else {
       loginScreen.style.display = "flex";
       appContent.style.display = "none";
-      if (window.firebaseOrdersUnsubscribe) {
-        window.firebaseOrdersUnsubscribe();
-        window.firebaseOrdersUnsubscribe = null;
-      }
+      if (window.firebaseOrdersUnsubscribe) { window.firebaseOrdersUnsubscribe(); window.firebaseOrdersUnsubscribe = null; }
+      if (window.firebaseCatalogUnsubscribe) { window.firebaseCatalogUnsubscribe(); window.firebaseCatalogUnsubscribe = null; }
     }
   });
 
+  // ==== SINKRONISASI PESANAN ====
   function startFirestoreSync(){
     if (window.firebaseOrdersUnsubscribe) return;
     window.firebaseOrdersUnsubscribe = onSnapshot(
@@ -268,16 +317,38 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
         });
         remoteOrders.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
         window.orders = remoteOrders;
-        if (typeof window.applyRemoteOrders === "function")
-          window.applyRemoteOrders(remoteOrders);
-        if (typeof window.setFirebaseStatus === "function")
-          window.setFirebaseStatus("Firebase aktif");
+        if (typeof window.applyRemoteOrders === "function") window.applyRemoteOrders(remoteOrders);
       },
-      error => {
-        console.error("Firebase realtime error:", error);
-        if (typeof window.setFirebaseStatus === "function")
-          window.setFirebaseStatus("Firebase error");
-      }
+      error => { console.error("Firestore orders error:", error); setFirebaseStatus("Firebase error"); }
+    );
+  }
+
+  // ==== SINKRONISASI KATALOG PRODUK (dari Firebase) ====
+  function startCatalogSync(){
+    if (window.firebaseCatalogUnsubscribe) return;
+    window.firebaseCatalogUnsubscribe = onSnapshot(
+      doc(db, "settings", "catalog"),
+      snap => {
+        if (snap.exists()) {
+          const data = snap.data();
+          if (Array.isArray(data.items)) {
+            window.catalog = data.items;
+            if (typeof window.applyRemoteCatalog === "function") window.applyRemoteCatalog(data.items);
+          }
+        } else {
+          // Belum ada di Firebase → pakai default & simpan
+          const defaults = [
+            {name:"Produk 1",price:0},
+            {name:"Produk 2",price:0},
+            {name:"Produk 3",price:0}
+          ];
+          window.catalog = defaults;
+          if (typeof window.applyRemoteCatalog === "function") window.applyRemoteCatalog(defaults);
+          setDoc(doc(db, "settings", "catalog"), { items: defaults, updatedAt: new Date().toISOString() })
+            .catch(err => console.error("Gagal inisialisasi katalog:", err));
+        }
+      },
+      error => { console.error("Firestore catalog error:", error); }
     );
   }
 
@@ -313,8 +384,15 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
     if (!window.firebaseReady || !auth.currentUser) return false;
     const o = (window.orders || []).find(x => x.id === id);
     const firestoreId = o?.firestoreId || id;
-    await updateDoc(doc(db, "orders", firestoreId), {
-      ...changes,
+    await updateDoc(doc(db, "orders", firestoreId), { ...changes, updatedAt: new Date().toISOString() });
+    return true;
+  };
+
+  // ==== SIMPAN KATALOG KE FIREBASE ====
+  window.firebaseSaveCatalog = async function(items) {
+    if (!window.firebaseReady || !auth.currentUser) return false;
+    await setDoc(doc(db, "settings", "catalog"), {
+      items: items,
       updatedAt: new Date().toISOString()
     });
     return true;
@@ -322,10 +400,12 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 </script>
 
 <script>
-const defaultCatalog=[
- {name:"Produk 1",price:0},{name:"Produk 2",price:0},{name:"Produk 3",price:0}
+let catalog = JSON.parse(localStorage.getItem("dapur_alwins_catalog")||"null") || [
+  {name:"Produk 1",price:0},
+  {name:"Produk 2",price:0},
+  {name:"Produk 3",price:0}
 ];
-let catalog = JSON.parse(localStorage.getItem("dapur_alwins_catalog")||"null") || defaultCatalog;
+window.catalog = catalog;
 window.orders = [];
 let orders = window.orders;
 let view = "active";
@@ -342,20 +422,37 @@ window.setFirebaseStatus = setFirebaseStatus;
 
 function save(){
   window.orders = orders;
+  window.catalog = catalog;
   localStorage.setItem("dapur_alwins_orders",JSON.stringify(orders));
   localStorage.setItem("dapur_alwins_catalog",JSON.stringify(catalog));
   setFirebaseStatus(window.firebaseReady ? "Firebase aktif" : "Lokal");
 }
 function statusClass(s){return s.toLowerCase().replace(/\s/g,"")}
+
 function addProductLine(data={name:"",qty:1,price:0}){
- const wrap=document.getElementById("products"); const row=document.createElement("div"); row.className="product-row";
- const options='<option value="">Pilih produk</option>'+catalog.map(p=>`<option value="${esc(p.name)}" ${p.name===data.name?"selected":""}>${esc(p.name)} — ${rp(p.price)}</option>`).join("");
- row.innerHTML=`<select onchange="syncPrice(this)">${options}</select><input type="number" min="1" value="${data.qty||1}" oninput="calcTotal()"><input type="number" min="0" value="${data.price||0}" oninput="calcTotal()" placeholder="Harga"><button type="button" class="remove" onclick="this.parentElement.remove();calcTotal()">×</button>`;
- wrap.appendChild(row); calcTotal();
+  const wrap=document.getElementById("products");
+  const row=document.createElement("div");
+  row.className="product-row";
+  const options='<option value="">Pilih produk</option>'+catalog.map(p=>`<option value="${esc(p.name)}" ${p.name===data.name?"selected":""}>${esc(p.name)} — ${rp(p.price)}</option>`).join("");
+  row.innerHTML=`<select onchange="syncPrice(this)">${options}</select><input type="number" min="1" value="${data.qty||1}" oninput="calcTotal()"><input type="number" min="0" value="${data.price||0}" oninput="calcTotal()" placeholder="Harga"><button type="button" class="remove" onclick="this.parentElement.remove();calcTotal()" title="Hapus">×</button>`;
+  wrap.appendChild(row);
+  calcTotal();
 }
-function syncPrice(sel){const p=catalog.find(x=>x.name===sel.value);const price=sel.parentElement.querySelectorAll("input")[1];if(p)price.value=p.price;calcTotal()}
-function getFormProducts(){return [...document.querySelectorAll("#products .product-row")].map(r=>{const i=r.querySelectorAll("input");return{name:r.querySelector("select").value,qty:Number(i[0].value)||0,price:Number(i[1].value)||0}}).filter(x=>x.name&&x.qty>0)}
-function calcTotal(){document.getElementById("formTotal").textContent=rp(getFormProducts().reduce((a,x)=>a+x.qty*x.price,0))}
+function syncPrice(sel){
+  const p=catalog.find(x=>x.name===sel.value);
+  const price=sel.parentElement.querySelectorAll("input")[1];
+  if(p)price.value=p.price;
+  calcTotal();
+}
+function getFormProducts(){
+  return [...document.querySelectorAll("#products .product-row")].map(r=>{
+    const i=r.querySelectorAll("input");
+    return{name:r.querySelector("select").value,qty:Number(i[0].value)||0,price:Number(i[1].value)||0}
+  }).filter(x=>x.name&&x.qty>0);
+}
+function calcTotal(){
+  document.getElementById("formTotal").textContent=rp(getFormProducts().reduce((a,x)=>a+x.qty*x.price,0));
+}
 
 document.getElementById("orderForm").addEventListener("submit", async e => {
   e.preventDefault();
@@ -374,14 +471,8 @@ document.getElementById("orderForm").addEventListener("submit", async e => {
   orders.unshift(newOrder);
   save();
   if(window.firebaseReady && window.firebaseAuth?.currentUser){
-    try{
-      await window.firebaseAddOrder(newOrder);
-      setFirebaseStatus("Firebase aktif");
-    }catch(err){
-      console.error(err);
-      setFirebaseStatus("Firebase gagal");
-      alert("Pesanan tersimpan lokal, tetapi gagal dikirim ke Firebase. Cek konfigurasi Firebase/Firestore.");
-    }
+    try{ await window.firebaseAddOrder(newOrder); setFirebaseStatus("Firebase aktif"); }
+    catch(err){ console.error(err); setFirebaseStatus("Firebase gagal"); alert("Pesanan tersimpan lokal, tapi gagal ke Firebase."); }
   }
   e.target.reset();
   document.getElementById("products").innerHTML="";
@@ -392,40 +483,141 @@ document.getElementById("orderForm").addEventListener("submit", async e => {
 
 function render(){renderOrders();updateStats()}
 function renderOrders(){
- const q=document.getElementById("search").value.toLowerCase(), f=document.getElementById("filter").value;
- let list=orders.filter(o=>o.customer.toLowerCase().includes(q)&&(f==="all"||o.status===f));
- list=list.filter(o=>view==="active"? !["Selesai","Dibatalkan"].includes(o.status):["Selesai","Dibatalkan"].includes(o.status));
- const body=document.getElementById("orderList");
- if(!list.length){body.innerHTML='<tr><td colspan="6" class="empty">Belum ada pesanan yang sesuai.</td></tr>';return}
- body.innerHTML=list.map(o=>`<tr><td><b>${o.id}</b><br><span class="note">${new Date(o.date).toLocaleString("id-ID")}</span></td><td>${esc(o.customer)}<br><span class="note">${esc(o.phone)}</span></td><td>${o.items.map(x=>`${esc(x.name)} × ${x.qty}`).join("<br>")}</td><td><b>${rp(o.total)}</b></td><td><select class="status ${statusClass(o.status)}" onchange="changeStatus('${o.id}',this.value)"><option ${o.status==="Baru"?"selected":""}>Baru</option><option ${o.status==="Diproses"?"selected":""}>Diproses</option><option ${o.status==="Dikirim"?"selected":""}>Dikirim</option><option ${o.status==="Selesai"?"selected":""}>Selesai</option><option ${o.status==="Dibatalkan"?"selected":""}>Dibatalkan</option></select></td><td><button class="btn" onclick="showDetail('${o.id}')">Detail</button></td></tr>`).join("");
+  const q=document.getElementById("search").value.toLowerCase(), f=document.getElementById("filter").value;
+  let list=orders.filter(o=>o.customer.toLowerCase().includes(q)&&(f==="all"||o.status===f));
+  list=list.filter(o=>view==="active"? !["Selesai","Dibatalkan"].includes(o.status):["Selesai","Dibatalkan"].includes(o.status));
+  const body=document.getElementById("orderList");
+  if(!list.length){body.innerHTML='<tr><td colspan="6" class="empty">Belum ada pesanan yang sesuai.</td></tr>';return}
+  body.innerHTML=list.map(o=>`<tr><td><b>${o.id}</b><br><span class="note">${new Date(o.date).toLocaleString("id-ID")}</span></td><td>${esc(o.customer)}<br><span class="note">${esc(o.phone)}</span></td><td>${o.items.map(x=>`${esc(x.name)} × ${x.qty}`).join("<br>")}</td><td><b>${rp(o.total)}</b></td><td><select class="status ${statusClass(o.status)}" onchange="changeStatus('${o.id}',this.value)"><option ${o.status==="Baru"?"selected":""}>Baru</option><option ${o.status==="Diproses"?"selected":""}>Diproses</option><option ${o.status==="Dikirim"?"selected":""}>Dikirim</option><option ${o.status==="Selesai"?"selected":""}>Selesai</option><option ${o.status==="Dibatalkan"?"selected":""}>Dibatalkan</option></select></td><td><button class="btn" onclick="showDetail('${o.id}')">Detail</button></td></tr>`).join("");
 }
 
 async function changeStatus(id,s){
- const o=orders.find(x=>x.id===id);
- if(!o)return;
- o.status=s; save(); render();
- if(window.firebaseReady && window.firebaseAuth?.currentUser){
-   try{ await window.firebaseUpdateOrder(id,{status:s}); setFirebaseStatus("Firebase aktif"); }
-   catch(err){ console.error(err); setFirebaseStatus("Firebase gagal"); alert("Status berubah lokal, tetapi gagal disinkronkan ke Firebase."); }
- }
+  const o=orders.find(x=>x.id===id);
+  if(!o)return;
+  o.status=s; save(); render();
+  if(window.firebaseReady && window.firebaseAuth?.currentUser){
+    try{ await window.firebaseUpdateOrder(id,{status:s}); setFirebaseStatus("Firebase aktif"); }
+    catch(err){ console.error(err); setFirebaseStatus("Firebase gagal"); alert("Status berubah lokal, tapi gagal sync ke Firebase."); }
+  }
 }
-function showDetail(id){const o=orders.find(x=>x.id===id);alert(`${o.id}\nPelanggan: ${o.customer}\nHP: ${o.phone}\nAlamat: ${o.address||"-"}\nProduk: ${o.items.map(x=>x.name+" x "+x.qty+" = "+rp(x.qty*x.price)).join("\\n")}\nTotal: ${rp(o.total)}\nStatus: ${o.status}\nCatatan: ${o.notes||"-"}`)}
+function showDetail(id){
+  const o=orders.find(x=>x.id===id);
+  alert(`${o.id}\nPelanggan: ${o.customer}\nHP: ${o.phone}\nAlamat: ${o.address||"-"}\nProduk: ${o.items.map(x=>x.name+" x "+x.qty+" = "+rp(x.qty*x.price)).join("\\n")}\nTotal: ${rp(o.total)}\nStatus: ${o.status}\nCatatan: ${o.notes||"-"}`);
+}
 function setView(v){view=v;activeTab.classList.toggle("active",v==="active");historyTab.classList.toggle("active",v==="history");renderOrders()}
-function updateStats(){activeCount.textContent=orders.filter(o=>!["Selesai","Dibatalkan"].includes(o.status)).length;doneCount.textContent=orders.filter(o=>o.status==="Selesai").length;allCount.textContent=orders.length;const d=new Date().toDateString();todayRevenue.textContent=rp(orders.filter(o=>new Date(o.date).toDateString()===d&&o.status!=="Dibatalkan").reduce((a,o)=>a+o.total,0))}
-function exportCSV(period){
- const now=new Date();let data=orders;
- if(period==="today")data=data.filter(o=>new Date(o.date).toDateString()===now.toDateString());
- if(period==="month")data=data.filter(o=>{const d=new Date(o.date);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear()});
- const rows=[["ID","Tanggal","Pelanggan","No HP","Alamat","Produk","Total","Status","Catatan"],...data.map(o=>[o.id,new Date(o.date).toLocaleString("id-ID"),o.customer,o.phone,o.address,o.items.map(x=>`${x.name} x ${x.qty}`).join(" | "),o.total,o.status,o.notes])];
- const csv="\ufeff"+rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\\r\\n");
- const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=`dapur-alwins-${period}-${new Date().toISOString().slice(0,10)}.csv`;a.click();
+function updateStats(){
+  activeCount.textContent=orders.filter(o=>!["Selesai","Dibatalkan"].includes(o.status)).length;
+  doneCount.textContent=orders.filter(o=>o.status==="Selesai").length;
+  allCount.textContent=orders.length;
+  const d=new Date().toDateString();
+  todayRevenue.textContent=rp(orders.filter(o=>new Date(o.date).toDateString()===d&&o.status!=="Dibatalkan").reduce((a,o)=>a+o.total,0));
 }
+function exportCSV(period){
+  const now=new Date();let data=orders;
+  if(period==="today")data=data.filter(o=>new Date(o.date).toDateString()===now.toDateString());
+  if(period==="month")data=data.filter(o=>{const d=new Date(o.date);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear()});
+  const rows=[["ID","Tanggal","Pelanggan","No HP","Alamat","Produk","Total","Status","Catatan"],...data.map(o=>[o.id,new Date(o.date).toLocaleString("id-ID"),o.customer,o.phone,o.address,o.items.map(x=>`${x.name} x ${x.qty}`).join(" | "),o.total,o.status,o.notes])];
+  const csv="\ufeff"+rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\\r\\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=`dapur-alwins-${period}-${new Date().toISOString().slice(0,10)}.csv`;a.click();
+}
+
+// ================= KELOLA PRODUK =================
 function openSettings(){renderCatalog();document.getElementById("settings").classList.add("show")}
 function closeSettings(){document.getElementById("settings").classList.remove("show")}
-function renderCatalog(){document.getElementById("productSettings").innerHTML=catalog.map((p,i)=>`<div class="product-row" style="grid-template-columns:1fr 130px 34px"><input value="${esc(p.name)}" data-name="${i}"><input type="number" value="${p.price}" data-price="${i}"><button class="remove" onclick="this.parentElement.remove()">×</button></div>`).join("")}
-function addCatalog(){catalog.push({name:"Produk Baru",price:0});renderCatalog()}
-function saveCatalog(){catalog=[...document.getElementById("productSettings").querySelectorAll(".product-row")].map(r=>({name:r.querySelector("[data-name]")?.value.trim()||"Produk",price:Number(r.querySelector("[data-price]")?.value)||0}));save();closeSettings();document.getElementById("products").innerHTML="";addProductLine()}
-function toggleTheme(){const dark=document.documentElement.getAttribute("data-theme")==="dark";document.documentElement.setAttribute("data-theme",dark?"":"dark");localStorage.setItem("dapur_theme",dark?"light":"dark")}
+
+function renderCatalog(){
+  const box = document.getElementById("productSettings");
+  if(!catalog.length){
+    box.innerHTML = '<p class="note" style="text-align:center;padding:12px">Belum ada produk. Klik "Tambah produk" untuk menambahkan.</p>';
+    return;
+  }
+  box.innerHTML = catalog.map((p,i)=>`
+    <div class="catalog-row">
+      <input value="${esc(p.name)}" data-name="${i}" placeholder="Nama produk">
+      <input type="number" min="0" value="${p.price}" data-price="${i}" placeholder="Harga">
+      <button class="btn-del-cat" onclick="removeCatalogItem(${i})" title="Hapus produk">🗑</button>
+    </div>
+  `).join("");
+}
+
+function removeCatalogItem(i){
+  if(!confirm(`Hapus produk "${catalog[i].name}"?`)) return;
+  catalog.splice(i,1);
+  renderCatalog();
+}
+
+function addCatalog(){
+  catalog.push({name:"",price:0});
+  renderCatalog();
+  // Fokus ke input nama produk baru
+  setTimeout(()=>{
+    const inputs = document.querySelectorAll("#productSettings [data-name]");
+    if(inputs.length) inputs[inputs.length-1].focus();
+  }, 50);
+}
+
+async function saveCatalog(){
+  // Ambil data terbaru dari form
+  const rows = document.querySelectorAll("#productSettings .catalog-row");
+  const newCatalog = [];
+  let invalid = false;
+  rows.forEach(r => {
+    const name = r.querySelector("[data-name]")?.value.trim() || "";
+    const price = Number(r.querySelector("[data-price]")?.value) || 0;
+    if(!name){ invalid = true; return; }
+    newCatalog.push({name, price});
+  });
+  if(invalid){
+    alert("Nama produk tidak boleh kosong.");
+    return;
+  }
+  catalog = newCatalog;
+  window.catalog = catalog;
+  save();
+
+  // Simpan ke Firebase agar tersinkron ke perangkat lain
+  if(window.firebaseReady && window.firebaseAuth?.currentUser){
+    try{
+      await window.firebaseSaveCatalog(catalog);
+      setFirebaseStatus("Firebase aktif");
+    }catch(err){
+      console.error(err);
+      alert("Tersimpan lokal, tapi gagal sync ke Firebase.");
+    }
+  }
+
+  closeSettings();
+  document.getElementById("products").innerHTML="";
+  addProductLine();
+  alert("Daftar produk berhasil disimpan.");
+}
+
+// Dipanggil dari module Firebase saat katalog dari cloud berubah
+window.applyRemoteCatalog = function(items){
+  catalog = items;
+  window.catalog = catalog;
+  localStorage.setItem("dapur_alwins_catalog", JSON.stringify(catalog));
+  // Refresh dropdown produk di form
+  const currentLines = [...document.querySelectorAll("#products .product-row")].map(r=>{
+    const i=r.querySelectorAll("input");
+    return {name:r.querySelector("select").value, qty:Number(i[0].value)||1, price:Number(i[1].value)||0};
+  });
+  document.getElementById("products").innerHTML="";
+  if(currentLines.length){
+    currentLines.forEach(l => addProductLine(l));
+  } else {
+    addProductLine();
+  }
+  // Refresh modal kalau sedang terbuka
+  if(document.getElementById("settings").classList.contains("show")) renderCatalog();
+};
+
+// ================= THEME =================
+function toggleTheme(){
+  const dark=document.documentElement.getAttribute("data-theme")==="dark";
+  document.documentElement.setAttribute("data-theme",dark?"":"dark");
+  localStorage.setItem("dapur_theme",dark?"light":"dark");
+}
 if(localStorage.getItem("dapur_theme")==="dark")document.documentElement.setAttribute("data-theme","dark");
 
 window.applyRemoteOrders = function(remoteOrders){
@@ -442,7 +634,6 @@ window.startApp = function(){
   render();
 };
 
-// Auto start kalau user sudah login (refresh halaman)
 if(window.firebaseAuth && window.firebaseAuth.currentUser){
   window.startApp();
 }
