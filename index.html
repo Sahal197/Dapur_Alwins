@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dapur Alwin's — Pencatatan Pesanan</title>
-<link rel="icon" type="image/png" href="logo.jpeg">
+<link rel="icon" type="image/jpeg" href="logo.jpeg">
 <style>
 :root{--bg:#f6f7fb;--card:#fff;--text:#172033;--muted:#697386;--line:#e5e7eb;--primary:#e85d3f;--primary2:#c94b31;--good:#15803d;--warn:#b45309;--danger:#b91c1c;--shadow:0 8px 28px rgba(23,32,51,.07)}
 [data-theme=dark]{--bg:#111827;--card:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--line:#374151;--shadow:0 8px 28px rgba(0,0,0,.25)}
@@ -133,17 +133,17 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
   // ============================================================
-  // FIREBASE CONFIG - SUDAH DIPERBAIKI
+  // FIREBASE CONFIG - PAKAI YANG SUDAH BERHASIL LOGIN
   // ============================================================
-const firebaseConfig = {
-  apiKey: "AIzaSyBg_c8rvyzUGTP2doDa3ss-OzrckVoFvwc",
-  authDomain: "dapur-alwins.firebaseapp.com",
-  projectId: "dapur-alwins",
-  storageBucket: "dapur-alwins.firebasestorage.app",
-  messagingSenderId: "41475077661",
-  appId: "1:41475077661:web:88c7d79522fe773101b8f4",
-  measurementId: "G-F6P721P0E2"
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyBg_c8rvyzUGTP2doDa3ss-OzrckVoFvwc",
+    authDomain: "dapur-alwins.firebaseapp.com",
+    projectId: "dapur-alwins",
+    storageBucket: "dapur-alwins.firebasestorage.app",
+    messagingSenderId: "41475077661",
+    appId: "1:41475077661:web:88c7d79522fe773101b8f4",
+    measurementId: "G-F6P721P0E2"
+  };
 
   const app  = initializeApp(firebaseConfig);
   const db   = getFirestore(app);
@@ -425,4 +425,10 @@ function closeSettings(){settings.classList.remove("show")}
 function renderCatalog(){productSettings.innerHTML=catalog.map((p,i)=>`<div class="product-row" style="grid-template-columns:1fr 130px 34px"><input value="${esc(p.name)}" data-name="${i}"><input type="number" value="${p.price}" data-price="${i}"><button class="remove" onclick="this.parentElement.remove()">×</button></div>`).join("")}
 function addCatalog(){catalog.push({name:"Produk Baru",price:0});renderCatalog()}
 function saveCatalog(){catalog=[...productSettings.querySelectorAll(".product-row")].map(r=>({name:r.querySelector("[data-name]")?.value.trim()||"Produk",price:Number(r.querySelector("[data-price]")?.value)||0}));save();closeSettings();document.getElementById("products").innerHTML="";addProductLine()}
-function toggleTheme(){const dark=document.documentElement.getAttribute("data-theme")==="dark";document.documentElement.setAttribute("data-theme",dark?"":"dark");localStorage.setItem("dapur_theme",dark?"
+function toggleTheme(){const dark=document.documentElement.getAttribute("data-theme")==="dark";document.documentElement.setAttribute("data-theme",dark?"":"dark");localStorage.setItem("dapur_theme",dark?"light":"dark")}
+if(localStorage.getItem("dapur_theme")==="dark")document.documentElement.setAttribute("data-theme","dark");
+
+window.applyRemoteOrders = function(remoteOrders){
+  orders = remoteOrders;
+  window.orders = orders;
+  localStorage
