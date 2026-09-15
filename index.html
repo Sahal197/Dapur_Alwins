@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dapur Alwin's — Pencatatan Pesanan</title>
-<!-- FAVICON LOGO -->
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==">
+<!-- ============================================================
+     GANTI URL DI BAWAH DENGAN BASE64 LOGO ANDA
+     Cara: buka https://www.base64-image.de/ → upload logo → copy
+     ============================================================ -->
+<link rel="icon" type="image/png" href="data:image/png;base64,GANTI_DENGAN_BASE64_LOGO_ANDA">
 <style>
 :root{--bg:#f6f7fb;--card:#fff;--text:#172033;--muted:#697386;--line:#e5e7eb;--primary:#e85d3f;--primary2:#c94b31;--good:#15803d;--warn:#b45309;--danger:#b91c1c;--shadow:0 8px 28px rgba(23,32,51,.07)}
 [data-theme=dark]{--bg:#111827;--card:#1f2937;--text:#f3f4f6;--muted:#9ca3af;--line:#374151;--shadow:0 8px 28px rgba(0,0,0,.25)}
@@ -13,7 +16,7 @@
 button,input,select,textarea{font:inherit}button{cursor:pointer}
 header{position:sticky;top:0;z-index:10;background:var(--card);border-bottom:1px solid var(--line);padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;gap:12px;align-items:center}
-.logo{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#f59e0b);display:grid;place-items:center;color:#fff;font-weight:800;font-size:20px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 12px rgba(232,93,63,.3)}
+.logo{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;flex-shrink:0;box-shadow:0 4px 12px rgba(232,93,63,.3)}
 .logo img{width:100%;height:100%;object-fit:cover;display:block}
 .brand h1{font-size:18px;margin:0}.brand small{color:var(--muted)}
 .actions{display:flex;gap:8px;align-items:center}.btn{border:1px solid var(--line);background:var(--card);color:var(--text);padding:9px 13px;border-radius:10px}.btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}.btn.danger{color:var(--danger)}
@@ -28,7 +31,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 /* Login Screen */
 #loginScreen{position:fixed;inset:0;background:linear-gradient(135deg,#e85d3f,#f59e0b);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px}
 .loginbox{background:#fff;color:#172033;border-radius:20px;padding:32px;width:min(400px,100%);box-shadow:0 20px 60px rgba(0,0,0,.25)}
-.loginbox .logo{width:100px;height:100px;margin:0 auto 16px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;box-shadow:0 8px 24px rgba(232,93,63,.35);border:4px solid #fff}
+.loginbox .logo{width:110px;height:110px;margin:0 auto 16px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;box-shadow:0 8px 24px rgba(232,93,63,.35);border:4px solid #fff}
 .loginbox .logo img{width:100%;height:100%;object-fit:cover;display:block}
 .loginbox h2{text-align:center;margin:0 0 6px;font-size:22px}
 .loginbox p{text-align:center;color:#697386;font-size:13px;margin:0 0 22px}
@@ -40,7 +43,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 .loginsuccess{background:#dcfce7;color:#166534;padding:10px;border-radius:8px;font-size:13px;margin-bottom:12px;display:none}
 #appContent{display:none}
 @media(max-width:900px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){header{padding:12px}.container{padding:12px}.stats{gap:8px}.stat{padding:12px}.stat b{font-size:19px}.actions .label{display:none}.product-row{grid-template-columns:1fr 62px 90px 25px}.brand small{display:none}.loginbox .logo{width:80px;height:80px}}
+@media(max-width:560px){header{padding:12px}.container{padding:12px}.stats{gap:8px}.stat{padding:12px}.stat b{font-size:19px}.actions .label{display:none}.product-row{grid-template-columns:1fr 62px 90px 25px}.brand small{display:none}.loginbox .logo{width:90px;height:90px}}
 </style>
 </head>
 <body>
@@ -49,7 +52,8 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 <div id="loginScreen">
   <div class="loginbox">
     <div class="logo">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==" alt="Logo Dapur Alwin's">
+      <!-- GANTI src DI BAWAH DENGAN BASE64 LOGO ANDA -->
+      <img src="data:image/png;base64,GANTI_DENGAN_BASE64_LOGO_ANDA" alt="Logo Dapur Alwin's">
     </div>
     <h2>Dapur Alwin's</h2>
     <p>Masuk untuk mengelola pesanan</p>
@@ -73,7 +77,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 <header>
   <div class="brand">
     <div class="logo">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==" alt="Logo Dapur Alwin's">
+      <img src="data:image/png;base64,GANTI_DENGAN_BASE64_LOGO_ANDA" alt="Logo Dapur Alwin's">
     </div>
     <div><h1>Dapur Alwin's</h1><small id="adminEmailLabel">Pencatatan pesanan UMKM</small></div>
   </div>
@@ -195,20 +199,29 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
     loginBtn.textContent = "Memproses…";
     try {
       await setPersistence(auth, browserLocalPersistence);
-      await signInWithEmailAndPassword(
+      const cred = await signInWithEmailAndPassword(
         auth,
         loginEmail.value.trim(),
         loginPassword.value
       );
+      console.log("Login sukses:", cred.user.email);
+      showLoginSuccess("Login berhasil! Mengalihkan…");
     } catch (err) {
-      console.error("Login error:", err);
-      let msg = "Gagal masuk. Periksa email dan password.";
-      if (err.code === "auth/invalid-credential" || err.code === "auth/wrong-password" || err.code === "auth/user-not-found")
-        msg = "Email atau password salah.";
+      console.error("Login error:", err.code, err.message);
+      // Pesan error lebih detail
+      let msg = "Gagal masuk: " + (err.message || "Unknown error");
+      if (err.code === "auth/invalid-credential" || err.code === "auth/wrong-password")
+        msg = "❌ Email atau password salah. Cek kembali.";
+      else if (err.code === "auth/user-not-found")
+        msg = "❌ Email tidak terdaftar di Firebase Authentication.";
       else if (err.code === "auth/too-many-requests")
-        msg = "Terlalu banyak percobaan. Coba lagi nanti.";
+        msg = "❌ Terlalu banyak percobaan gagal. Tunggu beberapa menit.";
       else if (err.code === "auth/invalid-email")
-        msg = "Format email tidak valid.";
+        msg = "❌ Format email tidak valid.";
+      else if (err.code === "auth/network-request-failed")
+        msg = "❌ Koneksi internet bermasalah. Cek jaringan Anda.";
+      else if (err.code === "auth/operation-not-allowed")
+        msg = "❌ Provider Email/Password belum diaktifkan di Firebase Console.";
       showLoginError(msg);
     } finally {
       loginBtn.disabled = false;
@@ -427,25 +440,4 @@ function exportCSV(period){
 }
 function openSettings(){renderCatalog();settings.classList.add("show")}
 function closeSettings(){settings.classList.remove("show")}
-function renderCatalog(){productSettings.innerHTML=catalog.map((p,i)=>`<div class="product-row" style="grid-template-columns:1fr 130px 34px"><input value="${esc(p.name)}" data-name="${i}"><input type="number" value="${p.price}" data-price="${i}"><button class="remove" onclick="this.parentElement.remove()">×</button></div>`).join("")}
-function addCatalog(){catalog.push({name:"Produk Baru",price:0});renderCatalog()}
-function saveCatalog(){catalog=[...productSettings.querySelectorAll(".product-row")].map(r=>({name:r.querySelector("[data-name]")?.value.trim()||"Produk",price:Number(r.querySelector("[data-price]")?.value)||0}));save();closeSettings();document.getElementById("products").innerHTML="";addProductLine()}
-function toggleTheme(){const dark=document.documentElement.getAttribute("data-theme")==="dark";document.documentElement.setAttribute("data-theme",dark?"":"dark");localStorage.setItem("dapur_theme",dark?"light":"dark")}
-if(localStorage.getItem("dapur_theme")==="dark")document.documentElement.setAttribute("data-theme","dark");
-
-window.applyRemoteOrders = function(remoteOrders){
-  orders = remoteOrders;
-  window.orders = orders;
-  localStorage.setItem("dapur_alwins_orders", JSON.stringify(orders));
-  render();
-};
-
-window.startApp = function(){
-  if(appStarted) return;
-  appStarted = true;
-  addProductLine();
-  render();
-};
-</script>
-</body>
-</html>
+function renderCatalog(){productSettings.innerHTML=catalog.map((p,i)=>`<div class="product-row" style="grid-template-columns:1fr 130px 34px"><input value="${esc(p.name)}" data-name="${i}"><input type="number" value="${p.price}" data-price="${i}"><
