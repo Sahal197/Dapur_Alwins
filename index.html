@@ -16,7 +16,10 @@ header{position:sticky;top:0;z-index:10;background:var(--card);border-bottom:1px
 .logo img{width:100%;height:100%;object-fit:cover;display:block}
 .brand h1{font-size:18px;margin:0;white-space:nowrap}.brand small{color:var(--muted);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .actions{display:flex;gap:8px;align-items:center;flex-shrink:0}.btn{border:1px solid var(--line);background:var(--card);color:var(--text);padding:9px 13px;border-radius:10px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}.btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}.btn.primary:hover{background:var(--primary2)}.btn.danger{color:var(--danger)}.btn svg{width:16px;height:16px;flex-shrink:0}
-.container{max-width:1250px;margin:auto;padding:22px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}.stat{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px;box-shadow:var(--shadow)}.stat span{color:var(--muted);font-size:13px}.stat b{display:block;font-size:24px;margin-top:5px}
+.container{max-width:1250px;margin:auto;padding:22px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}.stat{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px;box-shadow:var(--shadow);position:relative}.stat span{color:var(--muted);font-size:13px}.stat b{display:block;font-size:24px;margin-top:5px}
+.stat-btn{position:absolute;top:8px;right:8px;border:1px solid var(--line);background:var(--card);color:var(--muted);width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:13px;cursor:pointer;transition:all .2s;padding:0;line-height:1}
+.stat-btn:hover{background:var(--bg);color:var(--text);border-color:var(--primary)}
+.stat-btn-danger:hover{background:#fee2e2;color:var(--danger);border-color:var(--danger)}
 .grid{display:grid;grid-template-columns:390px 1fr;gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);padding:18px;min-width:0}.card h2{font-size:16px;margin:0 0 15px;display:flex;align-items:center;gap:8px}
 label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,select,textarea{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--text);outline:none}input:focus,select:focus,textarea:focus{border-color:var(--primary)}textarea{min-height:70px;resize:vertical}
 .product-row{display:grid;grid-template-columns:1fr 70px 95px 34px;gap:7px;margin-bottom:8px;align-items:center}.product-row input{min-width:0}.remove{border:0;background:transparent;color:var(--danger);font-size:22px;padding:0;line-height:1;width:34px;height:34px;display:grid;place-items:center;border-radius:8px}.remove:hover{background:#fee2e2}.addline{margin:5px 0 12px}.total{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--line);padding-top:13px;margin-top:13px;font-size:18px}.total b{color:var(--primary)}
@@ -24,7 +27,6 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 .tabs{display:flex;gap:6px;margin-bottom:12px}.tab{border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 12px;border-radius:9px}.tab.active{background:var(--text);color:var(--card)}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:15px;z-index:20}.modal.show{display:flex}.modalbox{background:var(--card);color:var(--text);width:min(680px,100%);max-height:90vh;overflow:auto;border-radius:16px;padding:20px}.close{float:right;border:0;background:transparent;color:var(--muted);font-size:24px;cursor:pointer;padding:0;line-height:1}
 .note{font-size:12px;color:var(--muted);line-height:1.5}.footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
-/* Login Screen */
 #loginScreen{position:fixed;inset:0;background:linear-gradient(135deg,#e85d3f,#f59e0b);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px;overflow-y:auto}
 .loginbox{background:#fff;color:#172033;border-radius:20px;padding:32px;width:min(400px,100%);box-shadow:0 20px 60px rgba(0,0,0,.25);margin:auto}
 .loginbox .logo{width:110px;height:110px;margin:0 auto 16px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;box-shadow:0 8px 24px rgba(232,93,63,.35);border:4px solid #fff}
@@ -38,17 +40,11 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 .loginerror{background:#fee2e2;color:#991b1b;padding:10px;border-radius:8px;font-size:13px;margin-bottom:12px;display:none}
 .loginsuccess{background:#dcfce7;color:#166534;padding:10px;border-radius:8px;font-size:13px;margin-bottom:12px;display:none}
 #appContent{display:none}
-/* Modal produk */
 .catalog-row{display:grid;grid-template-columns:1fr 130px 40px;gap:8px;margin-bottom:8px;align-items:center}
 .catalog-row input{min-width:0}
 .btn-del-cat{border:0;background:#fee2e2;color:var(--danger);border-radius:8px;width:40px;height:40px;display:grid;place-items:center;cursor:pointer;font-size:18px;line-height:1}
 .btn-del-cat:hover{background:#fecaca}
-
-/* ==== RESPONSIVE ==== */
-@media(max-width:900px){
-  .grid{grid-template-columns:1fr}
-  .stats{grid-template-columns:repeat(2,1fr)}
-}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){
   header{padding:10px 12px;gap:8px}
   .container{padding:12px}
@@ -56,6 +52,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   .stat{padding:12px}
   .stat span{font-size:11px}
   .stat b{font-size:19px}
+  .stat-btn{width:24px;height:24px;font-size:11px;top:6px;right:6px}
   .card{padding:14px;border-radius:12px}
   .card h2{font-size:15px;margin-bottom:12px}
   .actions .label{display:none}
@@ -141,8 +138,14 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   <section class="stats">
     <div class="stat"><span>Pesanan Aktif</span><b id="activeCount">0</b></div>
     <div class="stat"><span>Selesai</span><b id="doneCount">0</b></div>
-    <div class="stat"><span>Omzet Hari Ini</span><b id="todayRevenue">Rp0</b></div>
-    <div class="stat"><span>Total Pesanan</span><b id="allCount">0</b></div>
+    <div class="stat">
+      <button class="stat-btn" onclick="resetTodayRevenue()" title="Reset omzet hari ini">🔄</button>
+      <span>Omzet Hari Ini</span><b id="todayRevenue">Rp0</b>
+    </div>
+    <div class="stat">
+      <button class="stat-btn stat-btn-danger" onclick="deleteAllOrders()" title="Hapus semua pesanan">🗑</button>
+      <span>Total Pesanan</span><b id="allCount">0</b>
+    </div>
   </section>
 
   <div class="grid">
@@ -190,7 +193,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   <div class="modalbox">
     <button class="close" onclick="closeSettings()">×</button>
     <h2>Daftar Produk & Harga</h2>
-    <p class="note"><b>Catatan:</b> produk di sini tersimpan di Firebase (cloud), jadi otomatis tersinkron ke semua perangkat yang login.</p>
+    <p class="note"><b>Catatan:</b> produk tersimpan di Firebase (cloud), jadi otomatis tersinkron ke semua perangkat yang login.</p>
     <div id="productSettings"></div>
     <div style="margin-top:14px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap">
       <button class="btn" onclick="addCatalog()">
@@ -298,7 +301,6 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
     }
   });
 
-  // ==== SINKRONISASI PESANAN ====
   function startFirestoreSync(){
     if (window.firebaseOrdersUnsubscribe) return;
     window.firebaseOrdersUnsubscribe = onSnapshot(
@@ -319,11 +321,10 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
         window.orders = remoteOrders;
         if (typeof window.applyRemoteOrders === "function") window.applyRemoteOrders(remoteOrders);
       },
-      error => { console.error("Firestore orders error:", error); setFirebaseStatus("Firebase error"); }
+      error => { console.error("Firestore orders error:", error); if (typeof window.setFirebaseStatus === "function") window.setFirebaseStatus("Firebase error"); }
     );
   }
 
-  // ==== SINKRONISASI KATALOG PRODUK (dari Firebase) ====
   function startCatalogSync(){
     if (window.firebaseCatalogUnsubscribe) return;
     window.firebaseCatalogUnsubscribe = onSnapshot(
@@ -336,7 +337,6 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
             if (typeof window.applyRemoteCatalog === "function") window.applyRemoteCatalog(data.items);
           }
         } else {
-          // Belum ada di Firebase → pakai default & simpan
           const defaults = [
             {name:"Produk 1",price:0},
             {name:"Produk 2",price:0},
@@ -388,7 +388,14 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
     return true;
   };
 
-  // ==== SIMPAN KATALOG KE FIREBASE ====
+  window.firebaseDeleteOrder = async function(id) {
+    if (!window.firebaseReady || !auth.currentUser) return false;
+    const o = (window.orders || []).find(x => x.id === id);
+    const firestoreId = o?.firestoreId || id;
+    await deleteDoc(doc(db, "orders", firestoreId));
+    return true;
+  };
+
   window.firebaseSaveCatalog = async function(items) {
     if (!window.firebaseReady || !auth.currentUser) return false;
     await setDoc(doc(db, "settings", "catalog"), {
@@ -505,13 +512,24 @@ function showDetail(id){
   alert(`${o.id}\nPelanggan: ${o.customer}\nHP: ${o.phone}\nAlamat: ${o.address||"-"}\nProduk: ${o.items.map(x=>x.name+" x "+x.qty+" = "+rp(x.qty*x.price)).join("\\n")}\nTotal: ${rp(o.total)}\nStatus: ${o.status}\nCatatan: ${o.notes||"-"}`);
 }
 function setView(v){view=v;activeTab.classList.toggle("active",v==="active");historyTab.classList.toggle("active",v==="history");renderOrders()}
+
 function updateStats(){
-  activeCount.textContent=orders.filter(o=>!["Selesai","Dibatalkan"].includes(o.status)).length;
-  doneCount.textContent=orders.filter(o=>o.status==="Selesai").length;
-  allCount.textContent=orders.length;
-  const d=new Date().toDateString();
-  todayRevenue.textContent=rp(orders.filter(o=>new Date(o.date).toDateString()===d&&o.status!=="Dibatalkan").reduce((a,o)=>a+o.total,0));
+  activeCount.textContent = orders.filter(o => !["Selesai","Dibatalkan"].includes(o.status)).length;
+  doneCount.textContent = orders.filter(o => o.status === "Selesai").length;
+  allCount.textContent = orders.length;
+
+  const d = new Date().toDateString();
+  const todayRevenueValue = orders
+    .filter(o =>
+      new Date(o.date).toDateString() === d &&
+      o.status !== "Dibatalkan" &&
+      !o.excludedFromRevenue
+    )
+    .reduce((a, o) => a + o.total, 0);
+
+  todayRevenue.textContent = rp(todayRevenueValue);
 }
+
 function exportCSV(period){
   const now=new Date();let data=orders;
   if(period==="today")data=data.filter(o=>new Date(o.date).toDateString()===now.toDateString());
@@ -541,7 +559,7 @@ function renderCatalog(){
 }
 
 function removeCatalogItem(i){
-  if(!confirm(`Hapus produk "${catalog[i].name}"?`)) return;
+  if(!confirm(`Hapus produk "${catalog[i].name || '(tanpa nama)'}"?`)) return;
   catalog.splice(i,1);
   renderCatalog();
 }
@@ -549,7 +567,6 @@ function removeCatalogItem(i){
 function addCatalog(){
   catalog.push({name:"",price:0});
   renderCatalog();
-  // Fokus ke input nama produk baru
   setTimeout(()=>{
     const inputs = document.querySelectorAll("#productSettings [data-name]");
     if(inputs.length) inputs[inputs.length-1].focus();
@@ -557,7 +574,6 @@ function addCatalog(){
 }
 
 async function saveCatalog(){
-  // Ambil data terbaru dari form
   const rows = document.querySelectorAll("#productSettings .catalog-row");
   const newCatalog = [];
   let invalid = false;
@@ -567,23 +583,14 @@ async function saveCatalog(){
     if(!name){ invalid = true; return; }
     newCatalog.push({name, price});
   });
-  if(invalid){
-    alert("Nama produk tidak boleh kosong.");
-    return;
-  }
+  if(invalid){ alert("Nama produk tidak boleh kosong."); return; }
   catalog = newCatalog;
   window.catalog = catalog;
   save();
 
-  // Simpan ke Firebase agar tersinkron ke perangkat lain
   if(window.firebaseReady && window.firebaseAuth?.currentUser){
-    try{
-      await window.firebaseSaveCatalog(catalog);
-      setFirebaseStatus("Firebase aktif");
-    }catch(err){
-      console.error(err);
-      alert("Tersimpan lokal, tapi gagal sync ke Firebase.");
-    }
+    try{ await window.firebaseSaveCatalog(catalog); setFirebaseStatus("Firebase aktif"); }
+    catch(err){ console.error(err); alert("Tersimpan lokal, tapi gagal sync ke Firebase."); }
   }
 
   closeSettings();
@@ -592,12 +599,10 @@ async function saveCatalog(){
   alert("Daftar produk berhasil disimpan.");
 }
 
-// Dipanggil dari module Firebase saat katalog dari cloud berubah
 window.applyRemoteCatalog = function(items){
   catalog = items;
   window.catalog = catalog;
   localStorage.setItem("dapur_alwins_catalog", JSON.stringify(catalog));
-  // Refresh dropdown produk di form
   const currentLines = [...document.querySelectorAll("#products .product-row")].map(r=>{
     const i=r.querySelectorAll("input");
     return {name:r.querySelector("select").value, qty:Number(i[0].value)||1, price:Number(i[1].value)||0};
@@ -608,9 +613,95 @@ window.applyRemoteCatalog = function(items){
   } else {
     addProductLine();
   }
-  // Refresh modal kalau sedang terbuka
   if(document.getElementById("settings").classList.contains("show")) renderCatalog();
 };
+
+// ================= RESET OMZET HARI INI =================
+async function resetTodayRevenue() {
+  const today = new Date().toDateString();
+  const todayOrders = orders.filter(o => new Date(o.date).toDateString() === today && !o.excludedFromRevenue);
+
+  if (!todayOrders.length) {
+    alert("Belum ada pesanan hari ini (atau semua sudah direset).");
+    return;
+  }
+
+  const confirmMsg = `Reset omzet hari ini?\n\n` +
+    `${todayOrders.length} pesanan hari ini akan dikeluarkan dari perhitungan omzet.\n` +
+    `(Pesanan tetap tersimpan di daftar, hanya tidak dihitung di Omzet Hari Ini)\n\n` +
+    `Lanjutkan?`;
+
+  if (!confirm(confirmMsg)) return;
+
+  let successCount = 0;
+  for (const o of todayOrders) {
+    try {
+      if (window.firebaseReady && window.firebaseAuth?.currentUser) {
+        await window.firebaseUpdateOrder(o.id, { excludedFromRevenue: true });
+      }
+      const local = orders.find(x => x.id === o.id);
+      if (local) local.excludedFromRevenue = true;
+      successCount++;
+    } catch (err) {
+      console.error("Gagal reset omzet:", o.id, err);
+    }
+  }
+
+  save();
+  render();
+  alert(`✅ Berhasil reset omzet untuk ${successCount} pesanan.\n\nOmzet Hari Ini sekarang Rp0.`);
+}
+
+// ================= HAPUS SEMUA PESANAN =================
+async function deleteAllOrders() {
+  if (!orders.length) {
+    alert("Belum ada pesanan untuk dihapus.");
+    return;
+  }
+
+  const confirmMsg = `⚠️ HAPUS SEMUA PESANAN?\n\n` +
+    `Total: ${orders.length} pesanan akan dihapus PERMANEN dari Firebase dan lokal.\n\n` +
+    `Tindakan ini TIDAK BISA dibatalkan!\n\n` +
+    `Ketik "HAPUS" untuk konfirmasi:`;
+
+  const answer = prompt(confirmMsg);
+  if (answer !== "HAPUS") {
+    if (answer !== null) alert("Dibatalkan. Kata konfirmasi tidak sesuai.");
+    return;
+  }
+
+  if (!confirm(`Konfirmasi terakhir: Yakin hapus ${orders.length} pesanan secara PERMANEN?`)) return;
+
+  setFirebaseStatus("Menghapus…");
+  let successCount = 0;
+  let failCount = 0;
+
+  if (window.firebaseReady && window.firebaseAuth?.currentUser) {
+    for (const o of orders) {
+      try {
+        await window.firebaseDeleteOrder(o.id);
+        successCount++;
+      } catch (err) {
+        console.error("Gagal hapus:", o.id, err);
+        failCount++;
+      }
+    }
+  } else {
+    successCount = orders.length;
+  }
+
+  orders.length = 0;
+  window.orders = orders;
+  save();
+  render();
+  setFirebaseStatus("Firebase aktif");
+
+  if (failCount > 0) {
+    alert(`⚠️ ${successCount} pesanan berhasil dihapus, ${failCount} gagal.\nCek Console untuk detail error.`);
+  } else {
+    alert(`✅ Semua ${successCount} pesanan berhasil dihapus.`);
+  }
+}
 
 // ================= THEME =================
 function toggleTheme(){
