@@ -133,7 +133,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
   // ============================================================
-  // FIREBASE CONFIG - PAKAI YANG SUDAH BERHASIL LOGIN
+  // FIREBASE CONFIG - JANGAN DIUBAH, INI YANG SUDAH BERHASIL LOGIN
   // ============================================================
   const firebaseConfig = {
     apiKey: "AIzaSyBg_c8rvyzUGTP2doDa3ss-OzrckVoFvwc",
@@ -420,15 +420,15 @@ function exportCSV(period){
  const csv="\ufeff"+rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\\r\\n");
  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=`dapur-alwins-${period}-${new Date().toISOString().slice(0,10)}.csv`;a.click();
 }
-function openSettings(){renderCatalog();settings.classList.add("show")}
-function closeSettings(){settings.classList.remove("show")}
-function renderCatalog(){productSettings.innerHTML=catalog.map((p,i)=>`<div class="product-row" style="grid-template-columns:1fr 130px 34px"><input value="${esc(p.name)}" data-name="${i}"><input type="number" value="${p.price}" data-price="${i}"><button class="remove" onclick="this.parentElement.remove()">×</button></div>`).join("")}
+function openSettings(){renderCatalog();document.getElementById("settings").classList.add("show")}
+function closeSettings(){document.getElementById("settings").classList.remove("show")}
+function renderCatalog(){document.getElementById("productSettings").innerHTML=catalog.map((p,i)=>`<div class="product-row" style="grid-template-columns:1fr 130px 34px"><input value="${esc(p.name)}" data-name="${i}"><input type="number" value="${p.price}" data-price="${i}"><button class="remove" onclick="this.parentElement.remove()">×</button></div>`).join("")}
 function addCatalog(){catalog.push({name:"Produk Baru",price:0});renderCatalog()}
-function saveCatalog(){catalog=[...productSettings.querySelectorAll(".product-row")].map(r=>({name:r.querySelector("[data-name]")?.value.trim()||"Produk",price:Number(r.querySelector("[data-price]")?.value)||0}));save();closeSettings();document.getElementById("products").innerHTML="";addProductLine()}
+function saveCatalog(){catalog=[...document.getElementById("productSettings").querySelectorAll(".product-row")].map(r=>({name:r.querySelector("[data-name]")?.value.trim()||"Produk",price:Number(r.querySelector("[data-price]")?.value)||0}));save();closeSettings();document.getElementById("products").innerHTML="";addProductLine()}
 function toggleTheme(){const dark=document.documentElement.getAttribute("data-theme")==="dark";document.documentElement.setAttribute("data-theme",dark?"":"dark");localStorage.setItem("dapur_theme",dark?"light":"dark")}
 if(localStorage.getItem("dapur_theme")==="dark")document.documentElement.setAttribute("data-theme","dark");
 
 window.applyRemoteOrders = function(remoteOrders){
   orders = remoteOrders;
   window.orders = orders;
-  localStorage
+  localStorage.setItem("dapur_alwins_orders", JSON.stringify(orders));
