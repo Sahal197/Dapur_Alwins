@@ -137,13 +137,13 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 .invoice-controls label{margin-top:10px}
 .invoice-controls textarea{min-height:66px}
 .invoice-control-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.invoice-order-choices{border:1px solid var(--line);border-radius:10px;padding:7px;max-height:210px;overflow:auto;background:var(--bg);margin-top:7px}
-.invoice-order-choice{display:flex;align-items:flex-start;gap:9px;padding:9px 7px;border-bottom:1px solid var(--line);cursor:pointer;margin:0;font-weight:400}
-.invoice-order-choice:last-child{border-bottom:0}
-.invoice-order-choice input{width:16px;height:16px;flex:0 0 16px;margin:3px 0 0;accent-color:var(--primary)}
-.invoice-order-choice span{display:block;min-width:0;font-size:12px;line-height:1.45}
-.invoice-order-choice b{display:block;font-size:12px;color:var(--text)}
-.invoice-order-choice small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.invoice-menu-lines{display:grid;gap:8px;margin:8px 0}
+.invoice-menu-line{display:grid;grid-template-columns:minmax(0,1fr) 58px 94px 30px;gap:5px;align-items:center;padding:7px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.invoice-menu-line select,.invoice-menu-line input{min-width:0;padding:8px 6px;font-size:12px;border-radius:7px}
+.invoice-menu-line input[type=number]{text-align:center}
+.invoice-menu-line .remove{width:28px;height:32px;font-size:20px}
+.invoice-menu-editor-head{display:grid;grid-template-columns:minmax(0,1fr) 58px 94px 30px;gap:5px;color:var(--muted);font-size:10px;padding:0 7px}
+.invoice-menu-editor-head span:not(:first-child){text-align:center}
 .invoice-section-label{font-size:12px;font-weight:800;color:var(--primary);margin:17px 0 3px;padding-bottom:6px;border-bottom:1px solid var(--line)}
 .invoice-controls .btn{justify-content:center}
 .invoice-control-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:15px}
@@ -185,7 +185,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 .invoice-signature-line{border-top:4px solid #111;width:90%;margin:0 auto 4px}
 .invoice-empty-note{font-size:11px;color:#777;text-align:center;padding:12px;border:1px dashed #ddd}
 @media(max-width:1100px){.invoice-layout{grid-template-columns:1fr}.invoice-controls{position:static}.invoice-preview-wrap{padding:10px}.invoice-paper{padding:35px 30px;min-height:0}}
-@media(max-width:640px){.invoice-control-row{grid-template-columns:1fr}.invoice-control-actions{grid-template-columns:1fr}.invoice-paper{padding:24px 18px;font-size:11px}.invoice-head{grid-template-columns:100px 1fr;gap:10px;min-height:118px}.invoice-logo{width:90px;height:80px}.invoice-heading h2{font-size:33px;letter-spacing:-1px}.invoice-heading p{font-size:11px}.invoice-parties{gap:14px;margin-bottom:30px;min-height:110px}.invoice-party h3{font-size:16px;margin-bottom:8px}.invoice-party p{font-size:11px}.invoice-items-table th,.invoice-items-table td{padding:8px 5px;font-size:10px}.invoice-items-table{margin-bottom:25px}.invoice-payment-total{gap:10px;grid-template-columns:minmax(0,1fr) minmax(100px,.52fr);margin-bottom:22px}.invoice-payment-title,.invoice-total-title{padding:9px;font-size:11px}.invoice-payment-details{padding:10px 8px;font-size:11px}.invoice-grand-total{font-size:19px;padding:14px 2px}.invoice-bottom{padding-top:32px;min-height:115px}.invoice-thanks{font-size:18px}.invoice-signature{font-size:13px}}
+@media(max-width:640px){.invoice-control-row{grid-template-columns:1fr}.invoice-control-actions{grid-template-columns:1fr}.invoice-menu-line,.invoice-menu-editor-head{grid-template-columns:minmax(0,1fr) 42px 72px 26px;gap:4px}.invoice-menu-line select,.invoice-menu-line input{font-size:11px;padding:7px 4px}.invoice-menu-line .remove{width:26px}.invoice-paper{padding:24px 18px;font-size:11px}.invoice-head{grid-template-columns:100px 1fr;gap:10px;min-height:118px}.invoice-logo{width:90px;height:80px}.invoice-heading h2{font-size:33px;letter-spacing:-1px}.invoice-heading p{font-size:11px}.invoice-parties{gap:14px;margin-bottom:30px;min-height:110px}.invoice-party h3{font-size:16px;margin-bottom:8px}.invoice-party p{font-size:11px}.invoice-items-table th,.invoice-items-table td{padding:8px 5px;font-size:10px}.invoice-items-table{margin-bottom:25px}.invoice-payment-total{gap:10px;grid-template-columns:minmax(0,1fr) minmax(100px,.52fr);margin-bottom:22px}.invoice-payment-title,.invoice-total-title{padding:9px;font-size:11px}.invoice-payment-details{padding:10px 8px;font-size:11px}.invoice-grand-total{font-size:19px;padding:14px 2px}.invoice-bottom{padding-top:32px;min-height:115px}.invoice-thanks{font-size:18px}.invoice-signature{font-size:13px}}
 @page{size:A4;margin:12mm}
 @media print{
   html,body{background:#fff!important;margin:0!important;padding:0!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
@@ -361,13 +361,15 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
     <div class="invoice-layout">
       <section class="card invoice-controls">
         <h2>Pengaturan Invoice</h2>
-        <p class="section-help">Pilih pemesan dan pesanan yang akan digabungkan ke dalam satu invoice. Periksa rincian sebelum mencetak.</p>
+        <p class="section-help">Pilih nama pemesan, kemudian masukkan deskripsi tagihan dari daftar menu dan tentukan kuantitasnya. Rincian invoice dihitung otomatis.</p>
 
         <label for="invoiceCustomer">Pilih nama pemesan *</label>
         <select id="invoiceCustomer" onchange="onInvoiceCustomerChange()"><option value="">-- Pilih pemesan --</option></select>
-        <label>Pesanan yang dimasukkan</label>
-        <div class="invoice-order-choices" id="invoiceOrderChoices"><p class="note" style="padding:7px">Pilih nama pemesan terlebih dahulu.</p></div>
-        <p class="note" id="invoiceSelectedSummary" style="margin:7px 0 0">0 pesanan dipilih.</p>
+        <div class="invoice-section-label">Deskripsi / Menu Invoice</div>
+        <div class="invoice-menu-editor-head"><span>Menu</span><span>Qty</span><span>Harga</span><span></span></div>
+        <div class="invoice-menu-lines" id="invoiceMenuLines"></div>
+        <button class="btn" type="button" onclick="addInvoiceMenuLine()">＋ Tambah Menu</button>
+        <p class="note" id="invoiceSelectedSummary" style="margin:7px 0 0">0 menu dipilih.</p>
 
         <div class="invoice-control-row">
           <div><label for="invoiceNumber">No. Invoice</label><input id="invoiceNumber" placeholder="INV-20261020-0001"></div>
@@ -406,7 +408,6 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
               <h2>Invoice</h2>
               <p>No Invoice : <b id="printInvoiceNumber">-</b></p>
               <p>Tanggal : <span id="printInvoiceDate">-</span></p>
-              <p class="invoice-ref-print" id="printOrderReferences"></p>
             </div>
           </div>
           <div class="invoice-parties">
@@ -1023,11 +1024,17 @@ function renderInvoiceSetup(){
   const names=invoiceCustomers();
   select.innerHTML='<option value="">-- Pilih pemesan --</option>'+names.map(name=>`<option value="${esc(name)}">${esc(name)}</option>`).join("");
   select.value=names.includes(previous)?previous:"";
-  if(select.value)renderInvoiceOrderChoices(false);
-  else{
-    const box=document.getElementById("invoiceOrderChoices");
-    if(box)box.innerHTML=names.length?'<p class="note" style="padding:7px">Pilih nama pemesan untuk menampilkan daftar pesanannya.</p>':'<p class="note" style="padding:7px">Belum ada data pemesan. Tambahkan pesanan terlebih dahulu.</p>';
-    const summary=document.getElementById("invoiceSelectedSummary");if(summary)summary.textContent="0 pesanan dipilih.";
+  const lines=document.getElementById("invoiceMenuLines");
+  if(lines&&!lines.querySelector(".invoice-menu-line"))addInvoiceMenuLine();
+  if(select.value){
+    const customerOrders=orders.filter(o=>String(o.customer||"").trim()===select.value).sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
+    const latest=customerOrders[0];
+    const recipientName=document.getElementById("invoiceRecipientName");
+    const phone=document.getElementById("invoiceRecipientPhone");
+    const address=document.getElementById("invoiceRecipientAddress");
+    if(recipientName&&!recipientName.value)recipientName.value=select.value;
+    if(phone&&!phone.value&&latest?.phone)phone.value=latest.phone;
+    if(address&&!address.value&&latest?.address)address.value=latest.address;
   }
   updateInvoicePreview();
 }
@@ -1036,20 +1043,31 @@ function getInvoiceCustomerOrders(){
   return orders.filter(o=>String(o.customer||"").trim()===name&&o.status!=="Dibatalkan")
     .sort((a,b)=>new Date(a.date||0)-new Date(b.date||0));
 }
-function renderInvoiceOrderChoices(selectAll=false){
-  const box=document.getElementById("invoiceOrderChoices");
-  const customer=document.getElementById("invoiceCustomer")?.value||"";
+function buildInvoiceMenuOptions(selectedName=""){
+  return '<option value="">-- Pilih menu --</option>'+catalog.map(p=>`<option value="${esc(p.name)}" ${p.name===selectedName?"selected":""}>${esc(p.name)} — ${rp(p.price)}</option>`).join("");
+}
+function addInvoiceMenuLine(data={name:"",qty:1,price:0}){
+  const box=document.getElementById("invoiceMenuLines");
   if(!box)return;
-  const previousChecked=new Set([...box.querySelectorAll('input[type="checkbox"]:checked')].map(el=>el.value));
-  const list=getInvoiceCustomerOrders();
-  if(!customer){box.innerHTML='<p class="note" style="padding:7px">Pilih nama pemesan terlebih dahulu.</p>';updateInvoicePreview();return;}
-  if(!list.length){box.innerHTML='<p class="note" style="padding:7px">Tidak ada pesanan yang dapat dimasukkan ke invoice.</p>';updateInvoicePreview();return;}
-  box.innerHTML=list.map((o,i)=>{
-    const isChecked=selectAll||previousChecked.has(String(o.id));
-    const date=new Date(o.date||o.createdAt||Date.now()).toLocaleDateString("id-ID",{day:"2-digit",month:"short",year:"numeric"});
-    const status=String(o.status||"Baru");
-    return `<label class="invoice-order-choice"><input type="checkbox" value="${esc(o.id)}" ${isChecked?"checked":""} onchange="updateInvoicePreview()"><span><b>${esc(o.id||"Pesanan")}</b><small>${date} · ${esc(status)} · ${rp(o.total)}</small></span></label>`;
-  }).join("");
+  const row=document.createElement("div");
+  row.className="invoice-menu-line";
+  row.innerHTML=`<select aria-label="Deskripsi menu" onchange="syncInvoiceMenuPrice(this);updateInvoicePreview()">${buildInvoiceMenuOptions(data.name||"")}</select><input aria-label="Kuantitas" type="number" min="1" step="1" value="${Math.max(1,Number(data.qty)||1)}" oninput="updateInvoicePreview()"><input aria-label="Harga menu" type="number" min="0" step="500" value="${Math.max(0,Number(data.price)||0)}" oninput="updateInvoicePreview()" placeholder="Harga"><button type="button" class="remove" onclick="this.closest('.invoice-menu-line').remove();if(!document.querySelector('#invoiceMenuLines .invoice-menu-line'))addInvoiceMenuLine();updateInvoicePreview()" title="Hapus menu" aria-label="Hapus menu">×</button>`;
+  box.appendChild(row);
+  updateInvoicePreview();
+}
+window.addInvoiceMenuLine=addInvoiceMenuLine;
+function syncInvoiceMenuPrice(select){
+  const product=catalog.find(p=>p.name===select.value);
+  const priceInput=select.closest(".invoice-menu-line")?.querySelectorAll("input")[1];
+  if(product&&priceInput)priceInput.value=Math.max(0,Number(product.price)||0);
+  updateInvoicePreview();
+}
+function refreshInvoiceMenuOptions(){
+  document.querySelectorAll("#invoiceMenuLines .invoice-menu-line").forEach(row=>{
+    const select=row.querySelector("select");
+    const selected=select?.value||"";
+    if(select)select.innerHTML=buildInvoiceMenuOptions(selected);
+  });
   updateInvoicePreview();
 }
 function onInvoiceCustomerChange(){
@@ -1059,19 +1077,18 @@ function onInvoiceCustomerChange(){
     if(numberEl)numberEl.value=makeInvoiceNumber();
   }
   lastInvoiceCustomer=name;
-  renderInvoiceOrderChoices(true);
-  const customerOrders=getInvoiceCustomerOrders();
-  const latest=customerOrders.slice().sort((a,b)=>new Date(b.date||0)-new Date(a.date||0))[0];
-  document.getElementById("invoiceRecipientName").value=name;
-  document.getElementById("invoiceRecipientPhone").value=latest?.phone||"";
-  document.getElementById("invoiceRecipientAddress").value=latest?.address||"";
+  const customerOrders=orders.filter(o=>String(o.customer||"").trim()===name&&o.status!=="Dibatalkan")
+    .sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
+  const latest=customerOrders[0];
+  const nameField=document.getElementById("invoiceRecipientName");
+  const phoneField=document.getElementById("invoiceRecipientPhone");
+  const addressField=document.getElementById("invoiceRecipientAddress");
+  if(nameField)nameField.value=name;
+  if(phoneField)phoneField.value=latest?.phone||"";
+  if(addressField)addressField.value=latest?.address||"";
   updateInvoicePreview();
 }
 window.onInvoiceCustomerChange=onInvoiceCustomerChange;
-function getInvoiceSelectedOrders(){
-  const ids=new Set([...document.querySelectorAll('#invoiceOrderChoices input[type="checkbox"]:checked')].map(el=>el.value));
-  return getInvoiceCustomerOrders().filter(o=>ids.has(String(o.id)));
-}
 function invoiceDateLabel(value){
   if(!value)return "-";
   const date=new Date(value+"T00:00:00");
@@ -1081,31 +1098,32 @@ function invoiceDateLabel(value){
 function setInvoiceText(id,value, fallback="-"){
   const el=document.getElementById(id);if(el)el.textContent=value==null||String(value).trim()===""?fallback:String(value);
 }
-function getInvoiceItems(selectedOrders){
+function getInvoiceItems(){
   const map=new Map();
-  selectedOrders.forEach(o=>(Array.isArray(o.items)?o.items:[]).forEach(item=>{
-    const name=String(item.name||"Menu").trim()||"Menu";
-    const price=Math.max(0,Number(item.price)||0);
+  document.querySelectorAll("#invoiceMenuLines .invoice-menu-line").forEach(row=>{
+    const select=row.querySelector("select");
+    const inputs=row.querySelectorAll("input");
+    const name=String(select?.value||"").trim();
+    const qty=Math.max(0,Math.floor(Number(inputs[0]?.value)||0));
+    const price=Math.max(0,Number(inputs[1]?.value)||0);
+    if(!name||qty<1)return;
     const key=name.toLocaleLowerCase("id-ID")+"\u0000"+price;
     const entry=map.get(key)||{name,price,qty:0};
-    entry.qty+=Math.max(0,Number(item.qty)||0);
+    entry.qty+=qty;
     map.set(key,entry);
-  }));
-  return [...map.values()].filter(item=>item.qty>0).sort((a,b)=>a.name.localeCompare(b.name,"id")||a.price-b.price);
+  });
+  return [...map.values()].sort((a,b)=>a.name.localeCompare(b.name,"id")||a.price-b.price);
 }
 function updateInvoicePreview(){
   const paper=document.getElementById("invoicePaper");if(!paper)return;
-  const selectedOrders=getInvoiceSelectedOrders();
-  const selectedIds=selectedOrders.map(o=>o.id).filter(Boolean);
   const customerName=document.getElementById("invoiceCustomer")?.value||"";
   const recipientName=document.getElementById("invoiceRecipientName")?.value.trim()||customerName;
   const shipping=Math.max(0,Number(document.getElementById("invoiceShippingCost")?.value)||0);
-  const items=getInvoiceItems(selectedOrders);
+  const items=getInvoiceItems();
   const subtotal=items.reduce((sum,item)=>sum+item.qty*item.price,0);
   const total=subtotal+shipping;
   setInvoiceText("printInvoiceNumber",document.getElementById("invoiceNumber")?.value,"-");
   setInvoiceText("printInvoiceDate",invoiceDateLabel(document.getElementById("invoiceDate")?.value));
-  setInvoiceText("printOrderReferences",selectedIds.length?"Referensi pesanan: "+selectedIds.join(", "):"Pilih pesanan untuk membuat invoice");
   setInvoiceText("printSellerPhone",document.getElementById("invoiceSellerPhone")?.value);
   setInvoiceText("printSellerAddress",document.getElementById("invoiceSellerAddress")?.value);
   setInvoiceText("printRecipientName",recipientName);
@@ -1122,12 +1140,11 @@ function updateInvoicePreview(){
   if(body){
     const rows=items.map(item=>`<tr><td>${esc(item.name)}</td><td>${rp(item.price)}</td><td>${item.qty.toLocaleString("id-ID")}</td><td>${rp(item.price*item.qty)}</td></tr>`);
     if(shipping>0)rows.push(`<tr><td>Ongkos Kirim</td><td>${rp(shipping)}</td><td>1</td><td>${rp(shipping)}</td></tr>`);
-    if(!selectedOrders.length)body.innerHTML='<tr><td colspan="4"><div class="invoice-empty-note">Pilih pemesan dan minimal satu pesanan untuk melihat rincian invoice.</div></td></tr>';
-    else if(!rows.length)body.innerHTML='<tr><td colspan="4"><div class="invoice-empty-note">Pesanan terpilih belum memiliki rincian menu.</div></td></tr>';
+    if(!items.length)body.innerHTML='<tr><td colspan="4"><div class="invoice-empty-note">Pilih deskripsi dari daftar menu, lalu tentukan kuantitas untuk melihat rincian invoice.</div></td></tr>';
     else body.innerHTML=rows.join("");
   }
   const summary=document.getElementById("invoiceSelectedSummary");
-  if(summary)summary.textContent=`${selectedOrders.length} pesanan dipilih · ${items.reduce((sum,item)=>sum+item.qty,0).toLocaleString("id-ID")} item menu · Total ${rp(total)}`;
+  if(summary)summary.textContent=`${items.length.toLocaleString("id-ID")} jenis menu dipilih · ${items.reduce((sum,item)=>sum+item.qty,0).toLocaleString("id-ID")} item · Total ${rp(total)}`;
 }
 window.updateInvoicePreview=updateInvoicePreview;
 function saveInvoiceSettings(){
@@ -1146,8 +1163,9 @@ function saveInvoiceSettings(){
 window.saveInvoiceSettings=saveInvoiceSettings;
 function printInvoice(){
   initInvoiceFeature();
-  const selected=getInvoiceSelectedOrders();
-  if(!document.getElementById("invoiceCustomer").value||!selected.length){alert("Pilih nama pemesan dan minimal satu pesanan sebelum mencetak invoice.");return;}
+  const customer=document.getElementById("invoiceCustomer")?.value||"";
+  const items=getInvoiceItems();
+  if(!customer||!items.length){alert("Pilih nama pemesan dan minimal satu menu dari daftar menu sebelum mencetak invoice.");return;}
   if(!document.getElementById("invoiceNumber").value.trim()){document.getElementById("invoiceNumber").value=makeInvoiceNumber();}
   updateInvoicePreview();
   document.body.classList.add("printing-invoice");
@@ -1240,6 +1258,7 @@ async function saveCatalog(){
   closeSettings();
   document.getElementById("products").innerHTML="";
   addProductLine();
+  if(typeof refreshInvoiceMenuOptions==="function")refreshInvoiceMenuOptions();
   alert("Daftar produk berhasil disimpan.");
 }
 
@@ -1258,6 +1277,7 @@ window.applyRemoteCatalog = function(items){
     addProductLine();
   }
   if(document.getElementById("settings").classList.contains("show")) renderCatalog();
+  if(typeof refreshInvoiceMenuOptions==="function")refreshInvoiceMenuOptions();
 };
 
 // ================= RESET OMZET HARI INI =================
