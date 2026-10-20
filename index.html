@@ -91,6 +91,121 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   .stat b{font-size:17px}
   .btn{padding:7px 9px;font-size:12px}
 }
+
+/* ================= DASHBOARD MOCKUP ================= */
+:root{--primary:#ed4d2b;--primary2:#cf3c20;--dashboard-blue:#4f9cf7;--dashboard-green:#38a66a}
+#appContent.app-shell{display:none;min-height:100vh;background:var(--bg);align-items:stretch}
+.sidebar{position:fixed;inset:0 auto 0 0;width:272px;background:var(--card);border-right:1px solid var(--line);padding:20px 12px 14px;display:flex;flex-direction:column;gap:22px;z-index:15;overflow-y:auto}
+.sidebar-brand{display:flex;align-items:center;gap:12px;padding:0 10px 12px;min-width:0}
+.sidebar-brand .logo{width:48px;height:48px;box-shadow:none;background:var(--primary);flex-shrink:0}
+.sidebar-brand-copy{min-width:0}.sidebar-brand-copy strong{display:block;font-size:18px;letter-spacing:-.35px;white-space:nowrap}.sidebar-brand-copy small{display:block;color:var(--muted);font-size:10px;margin-top:3px;white-space:nowrap}
+.side-nav{display:flex;flex-direction:column;gap:6px}
+.nav-item{width:100%;min-height:47px;border:0;background:transparent;color:var(--text);border-radius:9px;padding:11px 13px;display:flex;align-items:center;text-align:left;gap:13px;font-size:14px;font-weight:550;transition:background .15s,color .15s}
+.nav-item:hover{background:var(--bg)}.nav-item.active{background:linear-gradient(100deg,#f05432,#e74424);color:#fff;box-shadow:0 6px 16px rgba(232,77,43,.17)}
+.nav-icon{width:20px;text-align:center;font-size:21px;line-height:1;flex-shrink:0;color:inherit}.nav-item span:nth-child(2){flex:1;white-space:nowrap}.nav-badge{min-width:22px;height:22px;padding:0 6px;border-radius:50px;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}.nav-item.active .nav-badge{background:#fff;color:var(--primary)}
+.sidebar-promo{margin-top:auto;min-height:175px;border-radius:12px;background:linear-gradient(145deg,#fff1e9,#fff8f4);color:#c94225;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px 10px;gap:5px;border:1px solid #ffe6d9}
+.sidebar-promo .promo-mark{font-size:43px;line-height:1}.sidebar-promo strong{font-family:Georgia,serif;font-style:italic;font-size:23px}.sidebar-promo span{font-size:12px;line-height:1.55;color:#6f7890;margin-top:5px}
+.app-main{min-width:0;flex:1;margin-left:272px}
+.topbar{position:sticky;top:0;z-index:10;height:68px;background:var(--card);border-bottom:1px solid var(--line);padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.topbar-status{min-width:0}.topbar .actions{gap:11px}.topbar .btn{padding:9px 11px}.theme-symbol{font-size:20px;color:var(--primary);line-height:1}
+.admin-chip{display:flex;align-items:center;gap:9px;padding:0 10px;border-left:1px solid var(--line);border-right:1px solid var(--line);min-width:0}.admin-avatar{width:36px;height:36px;border-radius:50%;background:#e5eaf3;color:#536681;font-size:17px;display:grid;place-items:center;font-weight:800}.admin-copy{display:flex;flex-direction:column;min-width:0}.admin-copy b{font-size:12px}.admin-copy small{max-width:190px;font-size:10px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.container{max-width:none;margin:0;padding:24px 20px 28px}
+.page-heading{display:flex;align-items:center;gap:13px;margin:0 0 22px}.heading-icon{width:54px;height:54px;border-radius:11px;background:linear-gradient(145deg,#f75b37,#df3c1e);color:white;display:grid;place-items:center;box-shadow:0 7px 18px rgba(232,77,43,.15);flex-shrink:0}.heading-icon svg{width:28px;height:28px}.page-heading h1{margin:0;font-size:28px;line-height:1.2;letter-spacing:-.6px}.page-heading p{margin:5px 0 0;color:var(--muted);font-size:14px}
+#overviewStats{margin-bottom:18px}.stats .stat{border-radius:12px;box-shadow:none}.grid{grid-template-columns:minmax(300px,365px) minmax(0,1fr);gap:16px}.card{box-shadow:0 3px 13px rgba(23,32,51,.035);border-radius:12px}
+.recap-card{padding:0;border-radius:12px;overflow:hidden}.recap-toolbar{padding:16px 18px;display:grid;grid-template-columns:minmax(150px,1fr) minmax(170px,1.1fr) minmax(180px,1.1fr) auto;align-items:end;gap:12px;border-bottom:1px solid var(--line);background:var(--card)}.filter-field{min-width:0}.filter-field label{margin:0 0 6px;font-size:12px;font-weight:700;color:var(--text)}.filter-field select{height:41px;font-size:13px;background-color:var(--card)}.export-recap-btn{height:41px;justify-content:center;padding:0 15px!important}
+.recap-summary{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 18px 22px}.recap-stat{position:relative;min-height:110px;padding:19px 16px 15px 94px;border-radius:11px;overflow:hidden;background:var(--card)}.recap-stat span:not(.metric-icon){font-size:12px;font-weight:650;color:var(--text)}.recap-stat b{font-size:25px;line-height:1.2;margin-top:8px;white-space:normal}.recap-stat small{display:block;color:var(--muted);font-size:11px;margin-top:5px}.recap-stat .metric-icon{position:absolute;left:16px;top:22px;width:57px;height:57px;border-radius:50%;display:grid;place-items:center;background:#f25330;color:white;font-size:25px;font-weight:800}.recap-stat-orders{border-color:#ffd6c7;background:linear-gradient(110deg,#fffaf7,#fff)}.recap-stat-items{border-color:#c5dfff;background:linear-gradient(110deg,#f6faff,#fff)}.recap-stat-items .metric-icon{background:linear-gradient(135deg,#80bdff,#478bed)}.recap-stat-value{border-color:#caeed8;background:linear-gradient(110deg,#f6fcf7,#fff)}.recap-stat-value .metric-icon{background:linear-gradient(135deg,#69c98e,#31a766);font-size:16px}
+.recap-two-column{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;padding:0 18px 18px}.recap-panel{min-width:0;border:1px solid var(--line);border-radius:11px;padding:13px;background:var(--card)}.recap-panel-title{display:flex;align-items:center;gap:9px;margin-bottom:13px;color:var(--primary)}.recap-panel-icon{font-size:23px;line-height:1}.recap-panel-title h2{margin:0;font-size:15px;font-weight:750;color:var(--primary);display:block}.recap-panel-title h2 small{font-size:12px;color:#4c6282;font-weight:500}.recap-table table{width:100%;min-width:460px;border-collapse:collapse}.recap-table th{font-size:11px;font-weight:650;background:#f7f9fc;color:#61718c;padding:11px 9px}.recap-table td{font-size:11px;padding:11px 9px;vertical-align:middle}.recap-table tbody tr:hover{background:#fffaf7}.recap-table tbody tr:last-child td{border-bottom:0}.recap-empty{color:var(--muted);text-align:center;padding:23px!important}
+.recap-pair-details{margin:0 18px 18px;border:1px solid var(--line);border-radius:10px;padding:13px 15px}.recap-pair-details summary{cursor:pointer;color:var(--primary);font-size:13px;font-weight:750}.recap-pair-details p{margin:9px 0}.recap-pair-details .recap-table{margin-top:10px}.recap-tip{margin:0 18px 18px;padding:12px 14px;display:flex;align-items:center;gap:10px;border:1px solid #ffd4c4;background:linear-gradient(90deg,#fff8f4,#fff);color:#566681;border-radius:9px;font-size:11px;line-height:1.5}.recap-tip b{color:var(--primary)}.tip-icon{font-size:22px;color:var(--primary);flex-shrink:0}
+#orderRecap{display:block}#ordersGrid{margin-bottom:18px}
+@media(max-width:1250px){.sidebar{width:236px}.app-main{margin-left:236px}.recap-toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}.export-recap-btn{width:100%}.recap-summary{gap:9px}.recap-stat{padding-left:79px}.recap-stat .metric-icon{width:48px;height:48px;left:13px}.grid{grid-template-columns:minmax(280px,330px) minmax(0,1fr)}}
+@media(max-width:1000px){.sidebar{width:205px;padding-left:9px;padding-right:9px}.app-main{margin-left:205px}.sidebar-brand-copy strong{font-size:15px}.sidebar-brand-copy small{font-size:9px}.sidebar-brand .logo{width:42px;height:42px}.nav-item{font-size:12px;gap:9px;padding:10px}.recap-two-column{grid-template-columns:1fr}.recap-table table{min-width:520px}.recap-stat b{font-size:21px}.grid{grid-template-columns:1fr}}
+@media(max-width:720px){
+ #appContent.app-shell{display:none;flex-direction:column}
+ .sidebar{position:sticky;inset:auto;width:100%;height:auto;max-height:none;padding:8px 9px;background:var(--card);border-right:0;border-bottom:1px solid var(--line);gap:8px;overflow:visible}
+ .sidebar-brand{display:none}.side-nav{flex-direction:row;gap:6px;overflow-x:auto;scrollbar-width:thin;padding-bottom:2px}.nav-item{width:auto;min-height:40px;flex-shrink:0;white-space:nowrap;font-size:12px;padding:9px 11px}.nav-icon{display:none}.nav-badge{min-width:19px;height:19px;font-size:10px}.sidebar-promo{display:none}
+ .app-main{margin-left:0;width:100%}.topbar{position:sticky;top:0;height:auto;min-height:58px;padding:9px 12px}.topbar .actions{gap:6px}.topbar-status .note{font-size:10px}.admin-chip{padding:0 6px;gap:6px}.admin-avatar{width:31px;height:31px}.admin-copy small{display:none}.admin-copy b{font-size:11px}.topbar .btn{padding:8px}.topbar .label{display:none}.container{padding:16px 11px 22px}.page-heading{margin-bottom:16px;gap:10px}.heading-icon{width:43px;height:43px}.heading-icon svg{width:23px;height:23px}.page-heading h1{font-size:22px}.page-heading p{font-size:12px}.recap-toolbar{padding:12px;grid-template-columns:1fr 1fr;gap:10px}.filter-field label{font-size:11px}.filter-field select{font-size:12px;padding:9px}.export-recap-btn{grid-column:1/-1}.recap-summary{margin:12px;grid-template-columns:1fr;gap:8px}.recap-stat{min-height:88px;padding:14px 14px 12px 77px}.recap-stat .metric-icon{top:17px}.recap-stat b{font-size:21px}.recap-two-column{padding:0 12px 12px;gap:12px}.recap-panel{padding:10px}.recap-panel-title h2{font-size:13px}.recap-panel-title h2 small{font-size:11px}.recap-table table{min-width:480px}.recap-table th,.recap-table td{padding:9px 7px}.recap-pair-details{margin:0 12px 12px}.recap-tip{margin:0 12px 12px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.form-actions .btn{flex-basis:100%}
+}
+@media(max-width:390px){.nav-item{font-size:11px;padding:8px 9px}.topbar-status{max-width:115px;overflow:hidden}.admin-chip{display:none}.page-heading h1{font-size:20px}.recap-toolbar{grid-template-columns:1fr}.export-recap-btn{grid-column:auto}.recap-stat b{font-size:19px}}
+
+
+/* ================= CETAK INVOICE ================= */
+.invoice-page{display:none;margin-bottom:18px}
+.invoice-layout{display:grid;grid-template-columns:minmax(285px,350px) minmax(0,1fr);gap:16px;align-items:start}
+.invoice-controls{position:sticky;top:84px}
+.invoice-controls h2{margin-bottom:6px}
+.invoice-controls .section-help{font-size:12px;color:var(--muted);line-height:1.55;margin:0 0 14px}
+.invoice-controls label{margin-top:10px}
+.invoice-controls textarea{min-height:66px}
+.invoice-control-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.invoice-order-choices{border:1px solid var(--line);border-radius:10px;padding:7px;max-height:210px;overflow:auto;background:var(--bg);margin-top:7px}
+.invoice-order-choice{display:flex;align-items:flex-start;gap:9px;padding:9px 7px;border-bottom:1px solid var(--line);cursor:pointer;margin:0;font-weight:400}
+.invoice-order-choice:last-child{border-bottom:0}
+.invoice-order-choice input{width:16px;height:16px;flex:0 0 16px;margin:3px 0 0;accent-color:var(--primary)}
+.invoice-order-choice span{display:block;min-width:0;font-size:12px;line-height:1.45}
+.invoice-order-choice b{display:block;font-size:12px;color:var(--text)}
+.invoice-order-choice small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.invoice-section-label{font-size:12px;font-weight:800;color:var(--primary);margin:17px 0 3px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.invoice-controls .btn{justify-content:center}
+.invoice-control-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:15px}
+.invoice-control-actions .btn{white-space:normal;text-align:center}
+.invoice-preview-wrap{background:#eef1f6;border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0;overflow:auto}
+.invoice-preview-label{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 10px;font-size:12px;color:var(--muted)}
+.invoice-preview-label b{color:var(--text);font-size:13px}
+.invoice-paper{width:min(100%,790px);min-height:980px;margin:0 auto;background:#fff;color:#202820;padding:48px 48px 36px;box-shadow:0 6px 25px rgba(18,34,52,.12);font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.45}
+.invoice-paper *{box-sizing:border-box}
+.invoice-head{display:grid;grid-template-columns:minmax(120px,1fr) minmax(210px,1fr);align-items:start;gap:18px;min-height:150px}
+.invoice-logo{width:150px;height:115px;display:flex;align-items:center;justify-content:flex-start;overflow:hidden}
+.invoice-logo img{width:100%;max-height:100%;object-fit:contain}
+.invoice-logo-fallback{display:none;align-items:center;justify-content:center;border:2px solid #f1dfc1;border-radius:50%;width:100px;height:100px;color:#d86b48;font-weight:800;font-size:26px}
+.invoice-heading{text-align:right}
+.invoice-heading h2{font-size:47px;line-height:1.05;letter-spacing:-1.7px;margin:0 0 12px;color:#111;font-weight:800;display:block}
+.invoice-heading p{margin:3px 0;font-size:14px;color:#222}
+.invoice-heading .invoice-ref-print{font-size:11px;color:#6b7280;margin-top:8px;overflow-wrap:anywhere}
+.invoice-parties{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:8px 0 60px;min-height:135px}
+.invoice-party h3{font-size:22px;line-height:1.2;margin:0 0 14px;color:#40543a;font-weight:750}
+.invoice-party p{margin:3px 0;font-size:15px;white-space:pre-line;overflow-wrap:anywhere;color:#43533f}
+.invoice-party.recipient{text-align:right}
+.invoice-items-table{width:100%;border-collapse:collapse;table-layout:fixed;min-width:0;margin:0 0 42px}
+.invoice-items-table th{background:#efa4ba;color:#fff;text-align:left;padding:13px 12px;font-size:14px;white-space:normal}
+.invoice-items-table td{padding:14px 12px;border-bottom:0;color:#171717;font-size:14px;vertical-align:top;overflow-wrap:anywhere}
+.invoice-items-table th:nth-child(1),.invoice-items-table td:nth-child(1){width:43%}
+.invoice-items-table th:nth-child(2),.invoice-items-table td:nth-child(2){width:22%;text-align:right}
+.invoice-items-table th:nth-child(3),.invoice-items-table td:nth-child(3){width:14%;text-align:center}
+.invoice-items-table th:nth-child(4),.invoice-items-table td:nth-child(4){width:21%;text-align:right}
+.invoice-items-table tfoot td{border-top:1px solid #e5e7eb;font-weight:750}
+.invoice-payment-total{display:grid;grid-template-columns:minmax(0,1fr) minmax(145px,.52fr);gap:22px;margin:0 0 34px;align-items:stretch}
+.invoice-payment-title,.invoice-total-title{background:#efa4ba;color:#fff;padding:12px 14px;font-size:15px;font-weight:750}
+.invoice-payment-details{padding:15px 14px;font-size:14px;white-space:pre-line;overflow-wrap:anywhere;color:#202020}
+.invoice-total-side{text-align:right}
+.invoice-grand-total{padding:18px 8px;color:#e99bb3;font-size:27px;font-weight:800;overflow-wrap:anywhere}
+.invoice-grand-total-label{font-size:12px;color:#727272;margin-top:6px}
+.invoice-bottom{border-top:1px solid #555;padding-top:50px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:end;margin-top:8px;min-height:150px}
+.invoice-thanks{font-size:25px;font-weight:750;color:#40543a;line-height:1.35;max-width:260px}
+.invoice-signature{text-align:center;color:#40543a;font-size:17px;font-weight:750;white-space:pre-line}
+.invoice-signature-line{border-top:4px solid #111;width:90%;margin:0 auto 4px}
+.invoice-empty-note{font-size:11px;color:#777;text-align:center;padding:12px;border:1px dashed #ddd}
+@media(max-width:1100px){.invoice-layout{grid-template-columns:1fr}.invoice-controls{position:static}.invoice-preview-wrap{padding:10px}.invoice-paper{padding:35px 30px;min-height:0}}
+@media(max-width:640px){.invoice-control-row{grid-template-columns:1fr}.invoice-control-actions{grid-template-columns:1fr}.invoice-paper{padding:24px 18px;font-size:11px}.invoice-head{grid-template-columns:100px 1fr;gap:10px;min-height:118px}.invoice-logo{width:90px;height:80px}.invoice-heading h2{font-size:33px;letter-spacing:-1px}.invoice-heading p{font-size:11px}.invoice-parties{gap:14px;margin-bottom:30px;min-height:110px}.invoice-party h3{font-size:16px;margin-bottom:8px}.invoice-party p{font-size:11px}.invoice-items-table th,.invoice-items-table td{padding:8px 5px;font-size:10px}.invoice-items-table{margin-bottom:25px}.invoice-payment-total{gap:10px;grid-template-columns:minmax(0,1fr) minmax(100px,.52fr);margin-bottom:22px}.invoice-payment-title,.invoice-total-title{padding:9px;font-size:11px}.invoice-payment-details{padding:10px 8px;font-size:11px}.invoice-grand-total{font-size:19px;padding:14px 2px}.invoice-bottom{padding-top:32px;min-height:115px}.invoice-thanks{font-size:18px}.invoice-signature{font-size:13px}}
+@page{size:A4;margin:12mm}
+@media print{
+  html,body{background:#fff!important;margin:0!important;padding:0!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  body.printing-invoice #loginScreen,body.printing-invoice .sidebar,body.printing-invoice .topbar,body.printing-invoice #pageHeading,body.printing-invoice #overviewStats,body.printing-invoice #ordersGrid,body.printing-invoice #orderRecap,body.printing-invoice .footer,body.printing-invoice #settings,body.printing-invoice .invoice-controls,body.printing-invoice .invoice-preview-label{display:none!important}
+  body.printing-invoice #appContent{display:block!important;min-height:0!important;background:#fff!important}
+  body.printing-invoice .app-main{margin:0!important;width:100%!important;min-width:0!important}
+  body.printing-invoice .container{padding:0!important;margin:0!important;max-width:none!important}
+  body.printing-invoice #invoicePage{display:block!important;margin:0!important;padding:0!important}
+  body.printing-invoice .invoice-layout{display:block!important}
+  body.printing-invoice .invoice-preview-wrap{padding:0!important;border:0!important;background:#fff!important;overflow:visible!important}
+  body.printing-invoice .invoice-paper{width:100%!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;font-size:11pt!important}
+  body.printing-invoice .invoice-head{min-height:36mm}
+  body.printing-invoice .invoice-parties{margin-bottom:20mm;min-height:30mm}
+  body.printing-invoice .invoice-items-table{margin-bottom:14mm}
+  body.printing-invoice .invoice-items-table th{background:#efa4ba!important;color:#fff!important}
+  body.printing-invoice .invoice-payment-title,body.printing-invoice .invoice-total-title{background:#efa4ba!important;color:#fff!important}
+  body.printing-invoice .invoice-grand-total{color:#e99bb3!important}
+  body.printing-invoice .invoice-bottom{break-inside:avoid}
+}
+
 </style>
 </head>
 <body>
@@ -117,45 +232,58 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   </div>
 </div>
 
-<div id="appContent">
-<header>
-  <div class="brand">
-    <div class="logo">
-      <img src="logo.jpeg" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='DA'">
+<div id="appContent" class="app-shell">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="logo"><img src="logo.jpeg" alt="Logo Dapur Alwin’s" onerror="this.style.display='none';this.parentElement.innerHTML='DA'"></div>
+      <div class="sidebar-brand-copy"><strong>Dapur Alwin’s</strong><small>Lezat • Higienis • Terpercaya</small></div>
     </div>
-    <div style="min-width:0"><h1>Dapur Alwin's</h1><small id="adminEmailLabel">Memuat…</small></div>
-  </div>
-  <div class="actions">
-    <span id="firebaseStatus" class="note">● …</span>
-    <button class="btn" onclick="toggleTheme()" title="Ganti tema">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-      <span class="label">Mode</span>
-    </button>
-    <button class="btn" onclick="openSettings()" title="Kelola produk">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
-      <span class="label">Produk</span>
-    </button>
-    <button class="btn danger" onclick="logout()" title="Keluar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-      <span class="label">Keluar</span>
-    </button>
-  </div>
-</header>
-<main class="container">
-  <section class="stats">
-    <div class="stat"><span>Pesanan Aktif</span><b id="activeCount">0</b></div>
-    <div class="stat"><span>Selesai</span><b id="doneCount">0</b></div>
-    <div class="stat">
-      <button class="stat-btn" onclick="resetTodayRevenue()" title="Reset omzet hari ini">🔄</button>
-      <span>Omzet Hari Ini</span><b id="todayRevenue">Rp0</b>
+    <nav class="side-nav" aria-label="Navigasi utama">
+      <button class="nav-item" data-page="dashboard" onclick="navigatePage('dashboard')"><span class="nav-icon">⌂</span><span>Dashboard</span></button>
+      <button class="nav-item" data-page="orders" onclick="navigatePage('orders')"><span class="nav-icon">▣</span><span>Pesanan Masuk</span><span class="nav-badge" id="sidebarActiveBadge">0</span></button>
+      <button class="nav-item active" data-page="activeRecap" onclick="navigatePage('activeRecap')"><span class="nav-icon">▥</span><span>Rekap Pesanan Aktif</span></button>
+      <button class="nav-item" data-page="recap" onclick="navigatePage('recap')"><span class="nav-icon">▦</span><span>Rekap Pesanan</span></button>
+      <button class="nav-item" data-page="menu" onclick="navigatePage('menu')"><span class="nav-icon">♜</span><span>Menu</span></button>
+      <button class="nav-item" data-page="customers" onclick="navigatePage('customers')"><span class="nav-icon">♧</span><span>Pelanggan</span></button>
+      <button class="nav-item" data-page="reports" onclick="navigatePage('reports')"><span class="nav-icon">⇩</span><span>Laporan &amp; Ekspor</span></button>
+      <button class="nav-item" data-page="invoice" onclick="navigatePage('invoice')"><span class="nav-icon">▤</span><span>Cetak Invoice</span></button>
+      <button class="nav-item" data-page="settings" onclick="navigatePage('settings')"><span class="nav-icon">⚙</span><span>Pengaturan</span></button>
+    </nav>
+    <div class="sidebar-promo">
+      <div class="promo-mark">♧</div>
+      <strong>Dapur Alwin’s</strong>
+      <span>Masakan Enak<br>Untuk Semua</span>
     </div>
-    <div class="stat">
-      <button class="stat-btn stat-btn-danger" onclick="deleteAllOrders()" title="Hapus semua pesanan">🗑</button>
-      <span>Total Pesanan</span><b id="allCount">0</b>
-    </div>
-  </section>
+  </aside>
 
-  <div class="grid">
+  <div class="app-main">
+    <header class="topbar">
+      <div class="topbar-status"><span id="firebaseStatus" class="note">● Menghubungkan ke Firebase…</span></div>
+      <div class="actions">
+        <button class="btn theme-btn" onclick="toggleTheme()" title="Ganti tema" aria-label="Ganti tema"><span class="theme-symbol">☼</span><span class="label">Mode</span></button>
+        <div class="admin-chip"><span class="admin-avatar">A</span><span class="admin-copy"><b>Admin</b><small id="adminEmailLabel">Memuat…</small></span></div>
+        <button class="btn" onclick="openSettings()" title="Kelola menu dan harga"><span class="label">Kelola Menu</span><span aria-hidden="true">⚙</span></button>
+        <button class="btn danger" onclick="logout()" title="Keluar"><span class="label">Keluar</span><span aria-hidden="true">↪</span></button>
+      </div>
+    </header>
+    <main class="container">
+      <div class="page-heading" id="pageHeading">
+        <div class="heading-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V10M10 19V5M16 19v-7M22 19V2"/></svg></div>
+        <div><h1 id="pageTitle">Rekap Pesanan Aktif</h1><p id="pageSubtitle">Lihat ringkasan dan detail pesanan yang sedang berlangsung</p></div>
+      </div>
+      <section class="stats" id="overviewStats">
+        <div class="stat"><span>Pesanan Aktif</span><b id="activeCount">0</b></div>
+        <div class="stat"><span>Selesai</span><b id="doneCount">0</b></div>
+        <div class="stat">
+          <button class="stat-btn" onclick="resetTodayRevenue()" title="Reset omzet hari ini">↻</button>
+          <span>Omzet Hari Ini</span><b id="todayRevenue">Rp0</b>
+        </div>
+        <div class="stat">
+          <button class="stat-btn stat-btn-danger" onclick="deleteAllOrders()" title="Hapus semua pesanan">▤</button>
+          <span>Total Pesanan</span><b id="allCount">0</b>
+        </div>
+      </section>
+  <div class="grid" id="ordersGrid">
     <section class="card">
       <h2>
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -197,32 +325,130 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
     </section>
   </div>
 
-  <section class="card" style="margin-top:18px" id="orderRecap">
-    <h2>Rekap Pesanan untuk Dapur</h2>
-    <p class="note">Rekap otomatis menghitung jumlah menu dan nilai pesanan berdasarkan periode. Pesanan berstatus Dibatalkan tidak dihitung.</p>
+  <section class="card recap-card" id="orderRecap">
     <div class="recap-toolbar">
-      <label for="recapPeriod" style="margin:0;white-space:nowrap">Periode</label>
-      <select id="recapPeriod" onchange="renderRecap()">
-        <option value="all">Semua periode</option>
-        <option value="today">Hari ini</option>
-        <option value="month">Bulan ini</option>
-      </select>
-      <button class="btn" onclick="exportRecapCSV()">⬇ Unduh Rekap CSV</button>
+      <div class="filter-field"><label for="recapPeriod">Periode</label><select id="recapPeriod" onchange="renderRecap()"><option value="today" selected>Hari Ini</option><option value="month">Bulan Ini</option><option value="all">Semua Periode</option></select></div>
+      <div class="filter-field"><label for="recapStatus">Status Pesanan</label><select id="recapStatus" onchange="renderRecap()"><option value="active" selected>Pesanan Aktif</option><option value="all">Semua (kecuali dibatalkan)</option><option value="done">Pesanan Selesai</option></select></div>
+      <div class="filter-field"><label for="recapGroupSelect">Kelompokkan / ekspor</label><select id="recapGroupSelect" onchange="setRecapView(this.value)"><option value="menu" selected>Menu</option><option value="customer">Nama Pemesan</option><option value="pair">Menu + Pemesan</option></select></div>
+      <button class="btn primary export-recap-btn" onclick="exportRecapCSV()"><span aria-hidden="true">⇩</span> Ekspor CSV</button>
     </div>
+
     <div class="recap-summary">
-      <div class="recap-stat"><span>Total kuantitas menu</span><b id="recapItemCount">0</b></div>
-      <div class="recap-stat"><span>Jumlah pesanan</span><b id="recapOrderCount">0</b></div>
-      <div class="recap-stat"><span>Nilai pesanan</span><b id="recapRevenue">Rp0</b></div>
+      <div class="recap-stat recap-stat-orders"><span id="recapOrderLabel">Jumlah Pesanan Aktif</span><b id="recapOrderCount">0</b><small id="recapOrderHint">Pesanan dalam periode terpilih</small><span class="metric-icon">▤</span></div>
+      <div class="recap-stat recap-stat-items"><span id="recapItemLabel">Total Item Menu</span><b id="recapItemCount">0</b><small>Item dari seluruh menu</small><span class="metric-icon">♜</span></div>
+      <div class="recap-stat recap-stat-value"><span id="recapRevenueLabel">Nilai Pesanan Aktif</span><b id="recapRevenue">Rp0</b><small>Total nilai pesanan pada filter</small><span class="metric-icon">Rp</span></div>
     </div>
-    <div class="recap-tabs">
-      <button class="tab active" id="recapMenuTab" onclick="setRecapView('menu')">Group by Menu</button>
-      <button class="tab" id="recapCustomerTab" onclick="setRecapView('customer')">Group by Pemesan</button>
-      <button class="tab" id="recapPairTab" onclick="setRecapView('pair')">Menu × Pemesan</button>
+
+    <div class="recap-two-column">
+      <section class="recap-panel">
+        <div class="recap-panel-title"><span class="recap-panel-icon">♜</span><h2>Rekap Pesanan Aktif <small>(Group by Menu)</small></h2></div>
+        <div class="tablewrap recap-table"><table><thead id="recapMenuHead"></thead><tbody id="recapMenuBody"></tbody></table></div>
+      </section>
+      <section class="recap-panel">
+        <div class="recap-panel-title"><span class="recap-panel-icon">♧</span><h2>Rekap Pesanan Aktif <small>(Group by Nama Pemesan)</small></h2></div>
+        <div class="tablewrap recap-table"><table><thead id="recapCustomerHead"></thead><tbody id="recapCustomerBody"></tbody></table></div>
+      </section>
     </div>
-    <div class="tablewrap recap-table"><table><thead id="recapHead"></thead><tbody id="recapBody"></tbody></table></div>
+
+    <details class="recap-pair-details">
+      <summary>Rincian kombinasi Menu × Nama Pemesan</summary>
+      <p class="note">Menampilkan jumlah setiap menu yang dipesan oleh masing-masing pelanggan.</p>
+      <div class="tablewrap recap-table"><table><thead id="recapPairHead"></thead><tbody id="recapPairBody"></tbody></table></div>
+    </details>
+    <div class="recap-tip"><span class="tip-icon">♧</span><div><b>Tips:</b> Gunakan filter periode dan status untuk menyesuaikan rekap. Data juga bisa diekspor ke CSV untuk diolah lebih lanjut di Excel.</div></div>
   </section>
+  <section class="invoice-page" id="invoicePage">
+    <div class="invoice-layout">
+      <section class="card invoice-controls">
+        <h2>Pengaturan Invoice</h2>
+        <p class="section-help">Pilih pemesan dan pesanan yang akan digabungkan ke dalam satu invoice. Periksa rincian sebelum mencetak.</p>
+
+        <label for="invoiceCustomer">Pilih nama pemesan *</label>
+        <select id="invoiceCustomer" onchange="onInvoiceCustomerChange()"><option value="">-- Pilih pemesan --</option></select>
+        <label>Pesanan yang dimasukkan</label>
+        <div class="invoice-order-choices" id="invoiceOrderChoices"><p class="note" style="padding:7px">Pilih nama pemesan terlebih dahulu.</p></div>
+        <p class="note" id="invoiceSelectedSummary" style="margin:7px 0 0">0 pesanan dipilih.</p>
+
+        <div class="invoice-control-row">
+          <div><label for="invoiceNumber">No. Invoice</label><input id="invoiceNumber" placeholder="INV-20261020-0001"></div>
+          <div><label for="invoiceDate">Tanggal</label><input type="date" id="invoiceDate"></div>
+        </div>
+
+        <div class="invoice-section-label">Informasi Penerima</div>
+        <label for="invoiceRecipientName">Kepada Yth. / Nama Perusahaan</label><input id="invoiceRecipientName" placeholder="Nama pemesan atau perusahaan">
+        <label for="invoiceRecipientPhone">Nomor HP</label><input id="invoiceRecipientPhone" placeholder="Nomor telepon penerima">
+        <label for="invoiceRecipientAddress">Alamat</label><textarea id="invoiceRecipientAddress" placeholder="Alamat pemesan"></textarea>
+        <label for="invoiceShippingCost">Ongkos kirim (Rp)</label><input id="invoiceShippingCost" type="number" min="0" step="1000" value="0">
+
+        <div class="invoice-section-label">Informasi Penjual</div>
+        <label for="invoiceSellerPhone">Kontak penjual</label><input id="invoiceSellerPhone" placeholder="Nomor kontak penjual">
+        <label for="invoiceSellerAddress">Alamat penjual</label><textarea id="invoiceSellerAddress" placeholder="Alamat penjual"></textarea>
+
+        <div class="invoice-section-label">Metode Pembayaran</div>
+        <label for="invoicePaymentMethod">Bank / metode</label><input id="invoicePaymentMethod" placeholder="Contoh: Bank BCA">
+        <label for="invoicePaymentAccount">Nomor rekening</label><input id="invoicePaymentAccount" placeholder="Nomor rekening">
+        <label for="invoicePaymentName">Atas nama</label><input id="invoicePaymentName" placeholder="Nama pemilik rekening">
+        <label for="invoiceSignature">Nama tanda tangan</label><input id="invoiceSignature" placeholder="Nama penjual">
+
+        <div class="invoice-control-actions">
+          <button class="btn" type="button" onclick="saveInvoiceSettings()">Simpan Data Penjual</button>
+          <button class="btn primary" type="button" onclick="printInvoice()">▤ Cetak Invoice</button>
+        </div>
+        <p class="note" style="margin-top:10px">Data penjual dan pembayaran disimpan di browser ini. Gunakan dialog cetak browser untuk mencetak atau menyimpan invoice sebagai PDF.</p>
+      </section>
+
+      <section class="invoice-preview-wrap">
+        <div class="invoice-preview-label"><b>Pratinjau Invoice</b><span>A4 · siap dicetak / PDF</span></div>
+        <article class="invoice-paper" id="invoicePaper">
+          <div class="invoice-head">
+            <div class="invoice-logo"><img src="logo.jpeg" alt="Logo Dapur Alwin's" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="invoice-logo-fallback">DA</span></div>
+            <div class="invoice-heading">
+              <h2>Invoice</h2>
+              <p>No Invoice : <b id="printInvoiceNumber">-</b></p>
+              <p>Tanggal : <span id="printInvoiceDate">-</span></p>
+              <p class="invoice-ref-print" id="printOrderReferences"></p>
+            </div>
+          </div>
+          <div class="invoice-parties">
+            <div class="invoice-party">
+              <h3>Kontak</h3>
+              <p id="printSellerPhone">-</p>
+              <p id="printSellerAddress">-</p>
+            </div>
+            <div class="invoice-party recipient">
+              <h3>Kepada Yth.</h3>
+              <p id="printRecipientName">-</p>
+              <p id="printRecipientPhone"></p>
+              <p id="printRecipientAddress"></p>
+            </div>
+          </div>
+          <table class="invoice-items-table">
+            <thead><tr><th>Deskripsi</th><th>Harga</th><th>Kuantitas</th><th>Jumlah</th></tr></thead>
+            <tbody id="invoiceItemsBody"><tr><td colspan="4"><div class="invoice-empty-note">Pilih pemesan untuk melihat rincian invoice.</div></td></tr></tbody>
+          </table>
+          <div class="invoice-payment-total">
+            <div>
+              <div class="invoice-payment-title">Metode Pembayaran</div>
+              <div class="invoice-payment-details" id="printPaymentDetails">-</div>
+            </div>
+            <div class="invoice-total-side">
+              <div class="invoice-total-title">Total</div>
+              <div class="invoice-grand-total" id="printInvoiceTotal">Rp0</div>
+              <div class="invoice-grand-total-label">Total tagihan</div>
+            </div>
+          </div>
+          <div class="invoice-bottom">
+            <div class="invoice-thanks">Terimakasih Atas<br>Pembelian Anda</div>
+            <div class="invoice-signature"><div class="invoice-signature-line"></div><span id="printInvoiceSignature">Dapur Alwin's</span></div>
+          </div>
+        </article>
+      </section>
+    </div>
+  </section>
+
   <div class="footer">Data pesanan & produk disimpan di Firebase Firestore dan disinkronkan realtime antar perangkat.</div>
 </main>
+  </div><!-- /.app-main -->
 
 <div class="modal" id="settings">
   <div class="modalbox">
@@ -323,7 +549,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   onAuthStateChanged(auth, (user) => {
     if (user) {
       loginScreen.style.display = "none";
-      appContent.style.display = "block";
+      appContent.style.display = "flex";
       adminEmailLabel.textContent = "Login sebagai " + (user.email || "admin");
       startFirestoreSync();
       startCatalogSync();
@@ -586,7 +812,41 @@ function cancelEdit(){resetOrderForm();}
 window.editOrder=editOrder;
 window.cancelEdit=cancelEdit;
 
-function render(){renderOrders();updateStats();renderRecap()}
+const pageDefinitions={
+  dashboard:{title:"Dashboard",subtitle:"Ringkasan aktivitas dan pesanan Dapur Alwin’s"},
+  orders:{title:"Pesanan Masuk",subtitle:"Kelola pesanan baru, perbarui status, dan edit detail pesanan"},
+  activeRecap:{title:"Rekap Pesanan Aktif",subtitle:"Lihat ringkasan dan detail pesanan yang sedang berlangsung"},
+  recap:{title:"Rekap Pesanan",subtitle:"Lihat rekap pesanan berdasarkan periode dan status"},
+  customers:{title:"Rekap per Nama Pemesan",subtitle:"Lihat total item dan nilai pesanan dari setiap pelanggan"},
+  reports:{title:"Laporan & Ekspor",subtitle:"Pilih periode, status, dan ekspor rekap pesanan ke CSV"},
+  invoice:{title:"Cetak Invoice",subtitle:"Pilih pemesan, tinjau tagihan, lalu cetak invoice atau simpan sebagai PDF"}
+};
+function navigatePage(page){
+  if(page==="menu"||page==="settings"){
+    document.querySelectorAll(".nav-item").forEach(btn=>btn.classList.toggle("active",btn.dataset.page===page));
+    openSettings();return;
+  }
+  const config=pageDefinitions[page]||pageDefinitions.activeRecap;
+  document.querySelectorAll(".nav-item").forEach(btn=>btn.classList.toggle("active",btn.dataset.page===page));
+  document.getElementById("pageTitle").textContent=config.title;
+  document.getElementById("pageSubtitle").textContent=config.subtitle;
+  const overview=document.getElementById("overviewStats"), grid=document.getElementById("ordersGrid"), recap=document.getElementById("orderRecap"), invoicePage=document.getElementById("invoicePage");
+  overview.style.display=(page==="dashboard"||page==="orders")?"grid":"none";
+  grid.style.display=(page==="dashboard"||page==="orders")?"grid":"none";
+  recap.style.display=(page==="dashboard"||page==="activeRecap"||page==="recap"||page==="customers"||page==="reports")?"block":"none";
+  if(invoicePage)invoicePage.style.display=page==="invoice"?"block":"none";
+  if(page==="activeRecap")document.getElementById("recapStatus").value="active";
+  if(page==="recap"||page==="reports")document.getElementById("recapStatus").value="all";
+  if(page==="customers")setRecapView("customer");
+  else if(page==="activeRecap"||page==="recap"||page==="reports")setRecapView("menu");
+  if(page==="dashboard"){document.getElementById("recapStatus").value="active";renderRecap();}
+  renderOrders();updateStats();renderRecap();
+  if(page==="invoice"){initInvoiceFeature();renderInvoiceSetup();updateInvoicePreview();}
+  if(window.innerWidth<720)window.scrollTo({top:0,behavior:"smooth"});
+}
+window.navigatePage=navigatePage;
+
+function render(){renderOrders();updateStats();renderRecap();if(invoiceInitialized)renderInvoiceSetup()}
 function renderOrders(){
   const q=document.getElementById("search").value.toLowerCase(), f=document.getElementById("filter").value;
   let list=orders.filter(o=>String(o.customer||"").toLowerCase().includes(q)&&(f==="all"||o.status===f));
@@ -613,18 +873,22 @@ function setView(v){view=v;activeTab.classList.toggle("active",v==="active");his
 
 function setRecapView(v){
   recapView=v;
-  document.getElementById("recapMenuTab").classList.toggle("active",v==="menu");
-  document.getElementById("recapCustomerTab").classList.toggle("active",v==="customer");
-  document.getElementById("recapPairTab").classList.toggle("active",v==="pair");
+  const select=document.getElementById("recapGroupSelect");
+  if(select&&select.value!==v)select.value=v;
   renderRecap();
 }
 window.setRecapView=setRecapView;
 
 function getRecapOrders(){
   const period=document.getElementById("recapPeriod")?.value||"all";
+  const statusFilter=document.getElementById("recapStatus")?.value||"all";
   const now=new Date();
   return orders.filter(o=>{
+    // Pesanan batal tidak pernah masuk ke rekap.
     if(o.status==="Dibatalkan")return false;
+    // Filter status: aktif = Baru, Diproses, atau Dikirim.
+    if(statusFilter==="active"&&["Selesai","Dibatalkan"].includes(o.status))return false;
+    if(statusFilter==="done"&&o.status!=="Selesai")return false;
     const date=new Date(o.date||o.createdAt||0);
     if(Number.isNaN(date.getTime()))return period==="all";
     if(period==="today")return date.toDateString()===now.toDateString();
@@ -634,52 +898,53 @@ function getRecapOrders(){
 }
 
 function renderRecap(){
-  const head=document.getElementById("recapHead"), body=document.getElementById("recapBody");
-  if(!head||!body)return;
+  const menuHead=document.getElementById("recapMenuHead"), menuBody=document.getElementById("recapMenuBody");
+  const customerHead=document.getElementById("recapCustomerHead"), customerBody=document.getElementById("recapCustomerBody");
+  const pairHead=document.getElementById("recapPairHead"), pairBody=document.getElementById("recapPairBody");
+  if(!menuHead||!menuBody||!customerHead||!customerBody||!pairHead||!pairBody)return;
   const source=getRecapOrders();
+  const isActiveFilter=(document.getElementById("recapStatus")?.value||"active")==="active";
   const itemCount=source.reduce((sum,o)=>sum+(o.items||[]).reduce((n,item)=>n+(Number(item.qty)||0),0),0);
   const totalValue=source.reduce((sum,o)=>sum+(Number(o.total)||0),0);
   document.getElementById("recapItemCount").textContent=itemCount.toLocaleString("id-ID");
   document.getElementById("recapOrderCount").textContent=source.length.toLocaleString("id-ID");
   document.getElementById("recapRevenue").textContent=rp(totalValue);
+  document.getElementById("recapOrderLabel").textContent=isActiveFilter?"Jumlah Pesanan Aktif":"Jumlah Pesanan";
+  document.getElementById("recapRevenueLabel").textContent=isActiveFilter?"Nilai Pesanan Aktif":"Nilai Pesanan";
+  document.getElementById("recapOrderHint").textContent=`${source.length.toLocaleString("id-ID")} pesanan dalam periode terpilih`;
 
-  if(recapView==="menu"){
-    const groups=new Map();
-    source.forEach(o=>(o.items||[]).forEach(item=>{
+  const menuGroups=new Map(), customerGroups=new Map(), pairGroups=new Map();
+  source.forEach(o=>{
+    const orderId=String(o.id||o.firestoreId||"");
+    const customer=String(o.customer||"Tanpa nama").trim()||"Tanpa nama";
+    const customerKey=customer.toLocaleLowerCase("id-ID");
+    const customerGroup=customerGroups.get(customerKey)||{name:customer,orders:new Set(),qty:0,value:0,menus:new Map()};
+    customerGroup.orders.add(orderId);customerGroup.value+=Number(o.total)||0;
+    (o.items||[]).forEach(item=>{
       const name=String(item.name||"Tanpa nama menu").trim()||"Tanpa nama menu";
-      const key=name.toLocaleLowerCase("id-ID");
-      const g=groups.get(key)||{name,qty:0,orderIds:new Set(),value:0};
-      g.qty+=Number(item.qty)||0;g.orderIds.add(o.id);g.value+=(Number(item.qty)||0)*(Number(item.price)||0);groups.set(key,g);
-    }));
-    const rows=[...groups.values()].sort((a,b)=>b.qty-a.qty||a.name.localeCompare(b.name,"id"));
-    head.innerHTML="<tr><th>Menu</th><th>Total Qty</th><th>Jumlah Pesanan</th><th>Nilai</th></tr>";
-    body.innerHTML=rows.length?rows.map(g=>`<tr><td><b>${esc(g.name)}</b></td><td>${g.qty.toLocaleString("id-ID")}</td><td>${g.orderIds.size.toLocaleString("id-ID")}</td><td><b>${rp(g.value)}</b></td></tr>`).join(""):'<tr><td colspan="4" class="recap-empty">Belum ada data pada periode ini.</td></tr>';
-  } else if(recapView==="customer"){
-    const groups=new Map();
-    source.forEach(o=>{
-      const name=String(o.customer||"Tanpa nama").trim()||"Tanpa nama";
-      const key=name.toLocaleLowerCase("id-ID");
-      const g=groups.get(key)||{name,orders:new Set(),qty:0,value:0,menus:new Map()};
-      g.orders.add(o.id);g.value+=Number(o.total)||0;
-      (o.items||[]).forEach(item=>{const menu=String(item.name||"Tanpa nama menu");g.qty+=Number(item.qty)||0;g.menus.set(menu,(g.menus.get(menu)||0)+(Number(item.qty)||0));});
-      groups.set(key,g);
+      const qty=Number(item.qty)||0, price=Number(item.price)||0;
+      const menuKey=name.toLocaleLowerCase("id-ID");
+      const mg=menuGroups.get(menuKey)||{name,qty:0,orders:new Set(),value:0};
+      mg.qty+=qty;mg.orders.add(orderId);mg.value+=qty*price;menuGroups.set(menuKey,mg);
+      customerGroup.qty+=qty;customerGroup.menus.set(name,(customerGroup.menus.get(name)||0)+qty);
+      const pairKey=menuKey+"\u0000"+customerKey;
+      const pg=pairGroups.get(pairKey)||{menu:name,customer,qty:0,orders:new Set(),value:0};
+      pg.qty+=qty;pg.orders.add(orderId);pg.value+=qty*price;pairGroups.set(pairKey,pg);
     });
-    const rows=[...groups.values()].sort((a,b)=>b.value-a.value||a.name.localeCompare(b.name,"id"));
-    head.innerHTML="<tr><th>Nama Pemesan</th><th>Menu & Qty</th><th>Total Qty</th><th>Jumlah Pesanan</th><th>Total Nilai</th></tr>";
-    body.innerHTML=rows.length?rows.map(g=>`<tr><td><b>${esc(g.name)}</b></td><td>${[...g.menus.entries()].sort((a,b)=>a[0].localeCompare(b[0],"id")).map(([name,qty])=>`${esc(name)} × ${qty}`).join("<br>")}</td><td>${g.qty.toLocaleString("id-ID")}</td><td>${g.orders.size.toLocaleString("id-ID")}</td><td><b>${rp(g.value)}</b></td></tr>`).join(""):'<tr><td colspan="5" class="recap-empty">Belum ada data pada periode ini.</td></tr>';
-  } else {
-    const groups=new Map();
-    source.forEach(o=>(o.items||[]).forEach(item=>{
-      const menu=String(item.name||"Tanpa nama menu").trim()||"Tanpa nama menu";
-      const customerName=String(o.customer||"Tanpa nama").trim()||"Tanpa nama";
-      const key=menu.toLocaleLowerCase("id-ID")+"\u0000"+customerName.toLocaleLowerCase("id-ID");
-      const g=groups.get(key)||{menu,customer:customerName,qty:0,orderIds:new Set(),value:0};
-      g.qty+=Number(item.qty)||0;g.orderIds.add(o.id);g.value+=(Number(item.qty)||0)*(Number(item.price)||0);groups.set(key,g);
-    }));
-    const rows=[...groups.values()].sort((a,b)=>a.menu.localeCompare(b.menu,"id")||a.customer.localeCompare(b.customer,"id"));
-    head.innerHTML="<tr><th>Menu</th><th>Nama Pemesan</th><th>Total Qty</th><th>Jumlah Pesanan</th><th>Nilai</th></tr>";
-    body.innerHTML=rows.length?rows.map(g=>`<tr><td><b>${esc(g.menu)}</b></td><td>${esc(g.customer)}</td><td>${g.qty.toLocaleString("id-ID")}</td><td>${g.orderIds.size.toLocaleString("id-ID")}</td><td><b>${rp(g.value)}</b></td></tr>`).join(""):'<tr><td colspan="5" class="recap-empty">Belum ada data pada periode ini.</td></tr>';
-  }
+    customerGroups.set(customerKey,customerGroup);
+  });
+
+  const menuRows=[...menuGroups.values()].sort((a,b)=>b.qty-a.qty||a.name.localeCompare(b.name,"id"));
+  menuHead.innerHTML="<tr><th>No</th><th>Menu</th><th>Total Qty</th><th>Jumlah Pesanan</th><th>Nilai Penjualan</th></tr>";
+  menuBody.innerHTML=menuRows.length?menuRows.map((g,i)=>`<tr><td>${i+1}.</td><td><b>${esc(g.name)}</b></td><td>${g.qty.toLocaleString("id-ID")}</td><td>${g.orders.size.toLocaleString("id-ID")}</td><td><b>${rp(g.value)}</b></td></tr>`).join("")+`<tr class="table-total"><td colspan="2"><b>Total</b></td><td><b>${itemCount.toLocaleString("id-ID")}</b></td><td><b>${source.length.toLocaleString("id-ID")}</b></td><td><b>${rp(totalValue)}</b></td></tr>`:'<tr><td colspan="5" class="recap-empty">Belum ada data pada periode ini.</td></tr>';
+
+  const customerRows=[...customerGroups.values()].sort((a,b)=>b.value-a.value||a.name.localeCompare(b.name,"id"));
+  customerHead.innerHTML="<tr><th>No</th><th>Nama Pemesan</th><th>Total Pesanan</th><th>Total Item</th><th>Nilai Pesanan</th></tr>";
+  customerBody.innerHTML=customerRows.length?customerRows.map((g,i)=>`<tr><td>${i+1}.</td><td><b>${esc(g.name)}</b><br><span class="note">${[...g.menus.entries()].map(([name,qty])=>`${esc(name)} × ${qty}`).join(" · ")}</span></td><td>${g.orders.size.toLocaleString("id-ID")}</td><td>${g.qty.toLocaleString("id-ID")}</td><td><b>${rp(g.value)}</b></td></tr>`).join("")+`<tr class="table-total"><td colspan="2"><b>Total</b></td><td><b>${source.length.toLocaleString("id-ID")}</b></td><td><b>${itemCount.toLocaleString("id-ID")}</b></td><td><b>${rp(totalValue)}</b></td></tr>`:'<tr><td colspan="5" class="recap-empty">Belum ada data pada periode ini.</td></tr>';
+
+  const pairRows=[...pairGroups.values()].sort((a,b)=>a.menu.localeCompare(b.menu,"id")||a.customer.localeCompare(b.customer,"id"));
+  pairHead.innerHTML="<tr><th>No</th><th>Menu</th><th>Nama Pemesan</th><th>Total Qty</th><th>Jumlah Pesanan</th><th>Nilai</th></tr>";
+  pairBody.innerHTML=pairRows.length?pairRows.map((g,i)=>`<tr><td>${i+1}.</td><td><b>${esc(g.menu)}</b></td><td>${esc(g.customer)}</td><td>${g.qty.toLocaleString("id-ID")}</td><td>${g.orders.size.toLocaleString("id-ID")}</td><td><b>${rp(g.value)}</b></td></tr>`).join(""):'<tr><td colspan="6" class="recap-empty">Belum ada data pada periode ini.</td></tr>';
 }
 
 function exportRecapCSV(){
@@ -699,12 +964,201 @@ function exportRecapCSV(){
     rows=[["Menu","Nama Pemesan","Total Qty","Jumlah Pesanan","Nilai"],...[...groups.values()].sort((a,b)=>a.menu.localeCompare(b.menu,"id")||a.customer.localeCompare(b.customer,"id")).map(g=>[g.menu,g.customer,g.qty,g.orders.size,g.value])];filename="rekap-menu-pemesan";
   }
   const csv="\ufeff"+rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\r\n");
-  const a=document.createElement("a");const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.href=url;a.download=`dapur-alwins-${filename}-${document.getElementById("recapPeriod").value}-${new Date().toISOString().slice(0,10)}.csv`;a.click();URL.revokeObjectURL(url);
+  const a=document.createElement("a");
+  const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));
+  const period=document.getElementById("recapPeriod")?.value||"all";
+  const status=document.getElementById("recapStatus")?.value||"all";
+  a.href=url;
+  a.download=`dapur-alwins-${filename}-${status}-${period}-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 window.exportRecapCSV=exportRecapCSV;
 
+// ================= CETAK INVOICE =================
+let invoiceInitialized = false;
+let lastInvoiceCustomer = "";
+const invoiceSellerDefaults = {
+  sellerPhone: "+62 857-2086-3226",
+  sellerAddress: "Perum Villa Asia, Susukan, Bojonggede, Kab. Bogor",
+  paymentMethod: "Bank BCA",
+  paymentAccount: "0910104144",
+  paymentName: "Winda Bestari Dewi Fortun",
+  signatureName: "Winda Bestari D F"
+};
+function localDateInputValue(date=new Date()){
+  const local = new Date(date.getTime()-date.getTimezoneOffset()*60000);
+  return local.toISOString().slice(0,10);
+}
+function makeInvoiceNumber(){
+  const date = localDateInputValue().replace(/-/g,"");
+  const key = "dapur_alwins_invoice_counter_"+date;
+  const next = (Number(localStorage.getItem(key))||0)+1;
+  localStorage.setItem(key,String(next));
+  return "INV"+date+"-"+String(next).padStart(4,"0");
+}
+function initInvoiceFeature(){
+  if(invoiceInitialized)return;
+  invoiceInitialized=true;
+  let saved={};
+  try{saved=JSON.parse(localStorage.getItem("dapur_alwins_invoice_settings")||"{}")||{};}catch(e){saved={};}
+  const values={...invoiceSellerDefaults,...saved};
+  const ids={sellerPhone:"invoiceSellerPhone",sellerAddress:"invoiceSellerAddress",paymentMethod:"invoicePaymentMethod",paymentAccount:"invoicePaymentAccount",paymentName:"invoicePaymentName",signatureName:"invoiceSignature"};
+  Object.entries(ids).forEach(([key,id])=>{const el=document.getElementById(id);if(el)el.value=values[key]||"";});
+  const dateEl=document.getElementById("invoiceDate");if(dateEl&&!dateEl.value)dateEl.value=localDateInputValue();
+  const numberEl=document.getElementById("invoiceNumber");if(numberEl&&!numberEl.value)numberEl.value=makeInvoiceNumber();
+  ["invoiceNumber","invoiceDate","invoiceRecipientName","invoiceRecipientPhone","invoiceRecipientAddress","invoiceShippingCost","invoiceSellerPhone","invoiceSellerAddress","invoicePaymentMethod","invoicePaymentAccount","invoicePaymentName","invoiceSignature"].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.addEventListener("input",updateInvoicePreview);
+  });
+  window.addEventListener("afterprint",()=>document.body.classList.remove("printing-invoice"));
+}
+function invoiceCustomers(){
+  return [...new Set(orders.filter(o=>o.status!=="Dibatalkan").map(o=>String(o.customer||"").trim()).filter(Boolean))]
+    .sort((a,b)=>a.localeCompare(b,"id"));
+}
+function renderInvoiceSetup(){
+  const select=document.getElementById("invoiceCustomer");
+  if(!select)return;
+  const previous=select.value;
+  const names=invoiceCustomers();
+  select.innerHTML='<option value="">-- Pilih pemesan --</option>'+names.map(name=>`<option value="${esc(name)}">${esc(name)}</option>`).join("");
+  select.value=names.includes(previous)?previous:"";
+  if(select.value)renderInvoiceOrderChoices(false);
+  else{
+    const box=document.getElementById("invoiceOrderChoices");
+    if(box)box.innerHTML=names.length?'<p class="note" style="padding:7px">Pilih nama pemesan untuk menampilkan daftar pesanannya.</p>':'<p class="note" style="padding:7px">Belum ada data pemesan. Tambahkan pesanan terlebih dahulu.</p>';
+    const summary=document.getElementById("invoiceSelectedSummary");if(summary)summary.textContent="0 pesanan dipilih.";
+  }
+  updateInvoicePreview();
+}
+function getInvoiceCustomerOrders(){
+  const name=document.getElementById("invoiceCustomer")?.value||"";
+  return orders.filter(o=>String(o.customer||"").trim()===name&&o.status!=="Dibatalkan")
+    .sort((a,b)=>new Date(a.date||0)-new Date(b.date||0));
+}
+function renderInvoiceOrderChoices(selectAll=false){
+  const box=document.getElementById("invoiceOrderChoices");
+  const customer=document.getElementById("invoiceCustomer")?.value||"";
+  if(!box)return;
+  const previousChecked=new Set([...box.querySelectorAll('input[type="checkbox"]:checked')].map(el=>el.value));
+  const list=getInvoiceCustomerOrders();
+  if(!customer){box.innerHTML='<p class="note" style="padding:7px">Pilih nama pemesan terlebih dahulu.</p>';updateInvoicePreview();return;}
+  if(!list.length){box.innerHTML='<p class="note" style="padding:7px">Tidak ada pesanan yang dapat dimasukkan ke invoice.</p>';updateInvoicePreview();return;}
+  box.innerHTML=list.map((o,i)=>{
+    const isChecked=selectAll||previousChecked.has(String(o.id));
+    const date=new Date(o.date||o.createdAt||Date.now()).toLocaleDateString("id-ID",{day:"2-digit",month:"short",year:"numeric"});
+    const status=String(o.status||"Baru");
+    return `<label class="invoice-order-choice"><input type="checkbox" value="${esc(o.id)}" ${isChecked?"checked":""} onchange="updateInvoicePreview()"><span><b>${esc(o.id||"Pesanan")}</b><small>${date} · ${esc(status)} · ${rp(o.total)}</small></span></label>`;
+  }).join("");
+  updateInvoicePreview();
+}
+function onInvoiceCustomerChange(){
+  const name=document.getElementById("invoiceCustomer")?.value||"";
+  if(name && name!==lastInvoiceCustomer){
+    const numberEl=document.getElementById("invoiceNumber");
+    if(numberEl)numberEl.value=makeInvoiceNumber();
+  }
+  lastInvoiceCustomer=name;
+  renderInvoiceOrderChoices(true);
+  const customerOrders=getInvoiceCustomerOrders();
+  const latest=customerOrders.slice().sort((a,b)=>new Date(b.date||0)-new Date(a.date||0))[0];
+  document.getElementById("invoiceRecipientName").value=name;
+  document.getElementById("invoiceRecipientPhone").value=latest?.phone||"";
+  document.getElementById("invoiceRecipientAddress").value=latest?.address||"";
+  updateInvoicePreview();
+}
+window.onInvoiceCustomerChange=onInvoiceCustomerChange;
+function getInvoiceSelectedOrders(){
+  const ids=new Set([...document.querySelectorAll('#invoiceOrderChoices input[type="checkbox"]:checked')].map(el=>el.value));
+  return getInvoiceCustomerOrders().filter(o=>ids.has(String(o.id)));
+}
+function invoiceDateLabel(value){
+  if(!value)return "-";
+  const date=new Date(value+"T00:00:00");
+  if(Number.isNaN(date.getTime()))return value;
+  return date.toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});
+}
+function setInvoiceText(id,value, fallback="-"){
+  const el=document.getElementById(id);if(el)el.textContent=value==null||String(value).trim()===""?fallback:String(value);
+}
+function getInvoiceItems(selectedOrders){
+  const map=new Map();
+  selectedOrders.forEach(o=>(Array.isArray(o.items)?o.items:[]).forEach(item=>{
+    const name=String(item.name||"Menu").trim()||"Menu";
+    const price=Math.max(0,Number(item.price)||0);
+    const key=name.toLocaleLowerCase("id-ID")+"\u0000"+price;
+    const entry=map.get(key)||{name,price,qty:0};
+    entry.qty+=Math.max(0,Number(item.qty)||0);
+    map.set(key,entry);
+  }));
+  return [...map.values()].filter(item=>item.qty>0).sort((a,b)=>a.name.localeCompare(b.name,"id")||a.price-b.price);
+}
+function updateInvoicePreview(){
+  const paper=document.getElementById("invoicePaper");if(!paper)return;
+  const selectedOrders=getInvoiceSelectedOrders();
+  const selectedIds=selectedOrders.map(o=>o.id).filter(Boolean);
+  const customerName=document.getElementById("invoiceCustomer")?.value||"";
+  const recipientName=document.getElementById("invoiceRecipientName")?.value.trim()||customerName;
+  const shipping=Math.max(0,Number(document.getElementById("invoiceShippingCost")?.value)||0);
+  const items=getInvoiceItems(selectedOrders);
+  const subtotal=items.reduce((sum,item)=>sum+item.qty*item.price,0);
+  const total=subtotal+shipping;
+  setInvoiceText("printInvoiceNumber",document.getElementById("invoiceNumber")?.value,"-");
+  setInvoiceText("printInvoiceDate",invoiceDateLabel(document.getElementById("invoiceDate")?.value));
+  setInvoiceText("printOrderReferences",selectedIds.length?"Referensi pesanan: "+selectedIds.join(", "):"Pilih pesanan untuk membuat invoice");
+  setInvoiceText("printSellerPhone",document.getElementById("invoiceSellerPhone")?.value);
+  setInvoiceText("printSellerAddress",document.getElementById("invoiceSellerAddress")?.value);
+  setInvoiceText("printRecipientName",recipientName);
+  setInvoiceText("printRecipientPhone",document.getElementById("invoiceRecipientPhone")?.value," ");
+  setInvoiceText("printRecipientAddress",document.getElementById("invoiceRecipientAddress")?.value," ");
+  setInvoiceText("printPaymentDetails",[
+    document.getElementById("invoicePaymentMethod")?.value,
+    document.getElementById("invoicePaymentAccount")?.value?"No. Rekening: "+document.getElementById("invoicePaymentAccount").value:"",
+    document.getElementById("invoicePaymentName")?.value?"a.n "+document.getElementById("invoicePaymentName").value:""
+  ].filter(Boolean).join("\n"));
+  setInvoiceText("printInvoiceTotal",rp(total));
+  setInvoiceText("printInvoiceSignature",document.getElementById("invoiceSignature")?.value,"Dapur Alwin's");
+  const body=document.getElementById("invoiceItemsBody");
+  if(body){
+    const rows=items.map(item=>`<tr><td>${esc(item.name)}</td><td>${rp(item.price)}</td><td>${item.qty.toLocaleString("id-ID")}</td><td>${rp(item.price*item.qty)}</td></tr>`);
+    if(shipping>0)rows.push(`<tr><td>Ongkos Kirim</td><td>${rp(shipping)}</td><td>1</td><td>${rp(shipping)}</td></tr>`);
+    if(!selectedOrders.length)body.innerHTML='<tr><td colspan="4"><div class="invoice-empty-note">Pilih pemesan dan minimal satu pesanan untuk melihat rincian invoice.</div></td></tr>';
+    else if(!rows.length)body.innerHTML='<tr><td colspan="4"><div class="invoice-empty-note">Pesanan terpilih belum memiliki rincian menu.</div></td></tr>';
+    else body.innerHTML=rows.join("");
+  }
+  const summary=document.getElementById("invoiceSelectedSummary");
+  if(summary)summary.textContent=`${selectedOrders.length} pesanan dipilih · ${items.reduce((sum,item)=>sum+item.qty,0).toLocaleString("id-ID")} item menu · Total ${rp(total)}`;
+}
+window.updateInvoicePreview=updateInvoicePreview;
+function saveInvoiceSettings(){
+  const settings={
+    sellerPhone:document.getElementById("invoiceSellerPhone").value.trim(),
+    sellerAddress:document.getElementById("invoiceSellerAddress").value.trim(),
+    paymentMethod:document.getElementById("invoicePaymentMethod").value.trim(),
+    paymentAccount:document.getElementById("invoicePaymentAccount").value.trim(),
+    paymentName:document.getElementById("invoicePaymentName").value.trim(),
+    signatureName:document.getElementById("invoiceSignature").value.trim()
+  };
+  localStorage.setItem("dapur_alwins_invoice_settings",JSON.stringify(settings));
+  updateInvoicePreview();
+  alert("Data penjual dan pembayaran berhasil disimpan di browser ini.");
+}
+window.saveInvoiceSettings=saveInvoiceSettings;
+function printInvoice(){
+  initInvoiceFeature();
+  const selected=getInvoiceSelectedOrders();
+  if(!document.getElementById("invoiceCustomer").value||!selected.length){alert("Pilih nama pemesan dan minimal satu pesanan sebelum mencetak invoice.");return;}
+  if(!document.getElementById("invoiceNumber").value.trim()){document.getElementById("invoiceNumber").value=makeInvoiceNumber();}
+  updateInvoicePreview();
+  document.body.classList.add("printing-invoice");
+  window.print();
+}
+window.printInvoice=printInvoice;
+
 function updateStats(){
   activeCount.textContent = orders.filter(o => !["Selesai","Dibatalkan"].includes(o.status)).length;
+  const sideBadge=document.getElementById("sidebarActiveBadge");
+  if(sideBadge)sideBadge.textContent=orders.filter(o=>!["Selesai","Dibatalkan"].includes(o.status)).length.toLocaleString("id-ID");
   doneCount.textContent = orders.filter(o => o.status === "Selesai").length;
   allCount.textContent = orders.length;
 
@@ -898,8 +1352,9 @@ function toggleTheme(){
   const dark=document.documentElement.getAttribute("data-theme")==="dark";
   document.documentElement.setAttribute("data-theme",dark?"":"dark");
   localStorage.setItem("dapur_theme",dark?"light":"dark");
+  const symbol=document.querySelector(".theme-symbol");if(symbol)symbol.textContent=dark?"☼":"☾";
 }
-if(localStorage.getItem("dapur_theme")==="dark")document.documentElement.setAttribute("data-theme","dark");
+if(localStorage.getItem("dapur_theme")==="dark"){document.documentElement.setAttribute("data-theme","dark");const symbol=document.querySelector(".theme-symbol");if(symbol)symbol.textContent="☾";}
 
 window.applyRemoteOrders = function(remoteOrders){
   orders = remoteOrders;
@@ -911,7 +1366,9 @@ window.applyRemoteOrders = function(remoteOrders){
 window.startApp = function(){
   if(appStarted) return;
   appStarted = true;
+  initInvoiceFeature();
   addProductLine();
+  navigatePage("activeRecap");
   render();
 };
 
