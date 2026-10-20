@@ -27,6 +27,11 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
 .tabs{display:flex;gap:6px;margin-bottom:12px}.tab{border:1px solid var(--line);background:var(--card);color:var(--muted);padding:8px 12px;border-radius:9px}.tab.active{background:var(--text);color:var(--card)}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:15px;z-index:20}.modal.show{display:flex}.modalbox{background:var(--card);color:var(--text);width:min(680px,100%);max-height:90vh;overflow:auto;border-radius:16px;padding:20px}.close{float:right;border:0;background:transparent;color:var(--muted);font-size:24px;cursor:pointer;padding:0;line-height:1}
 .note{font-size:12px;color:var(--muted);line-height:1.5}.footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+ .form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.form-actions .btn{flex:1;justify-content:center}
+ .recap-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}.recap-toolbar select{max-width:220px}
+ .recap-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 12px}.recap-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+ .recap-stat{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--bg);min-width:0}.recap-stat span{display:block;color:var(--muted);font-size:12px}.recap-stat b{display:block;font-size:18px;margin-top:5px;overflow-wrap:anywhere}
+ .recap-table table{min-width:620px}.recap-empty{text-align:center;padding:22px;color:var(--muted)}.btn.small{padding:6px 9px;font-size:12px}
 #loginScreen{position:fixed;inset:0;background:linear-gradient(135deg,#e85d3f,#f59e0b);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px;overflow-y:auto}
 .loginbox{background:#fff;color:#172033;border-radius:20px;padding:32px;width:min(400px,100%);box-shadow:0 20px 60px rgba(0,0,0,.25);margin:auto}
 .loginbox .logo{width:110px;height:110px;margin:0 auto 16px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;box-shadow:0 8px 24px rgba(232,93,63,.35);border:4px solid #fff}
@@ -76,6 +81,8 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
   .loginbox .logo{width:85px;height:85px}
   .loginbox h2{font-size:19px}
   .footer{font-size:11px;padding:14px}
+  .recap-summary{grid-template-columns:1fr;gap:8px}.recap-stat{padding:10px}.recap-stat b{font-size:17px}
+  .recap-toolbar select{max-width:none;flex:1}.form-actions .btn{flex-basis:100%}
   #loginScreen{padding:12px}
 }
 @media(max-width:380px){
@@ -152,7 +159,7 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
     <section class="card">
       <h2>
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        Pesanan Baru
+        <span id="orderFormTitle">Pesanan Baru</span>
       </h2>
       <form id="orderForm">
         <label>Nama pelanggan *</label><input id="customer" required placeholder="Contoh: Budi Santoso">
@@ -166,10 +173,13 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
         </button>
         <div class="total"><span>Total</span><b id="formTotal">Rp0</b></div>
         <label>Catatan khusus</label><textarea id="notes" placeholder="Contoh: tanpa sambal, kirim sore..."></textarea>
-        <button class="btn primary" style="width:100%;margin-top:14px">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-          Simpan Pesanan
-        </button>
+        <div class="form-actions">
+          <button id="orderSubmitBtn" class="btn primary" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            Simpan Pesanan
+          </button>
+          <button id="cancelEditBtn" class="btn" type="button" onclick="cancelEdit()" hidden>Batal Edit</button>
+        </div>
       </form>
     </section>
 
@@ -186,6 +196,31 @@ label{display:block;font-size:13px;font-weight:650;margin:11px 0 6px}input,selec
       <div class="tablewrap"><table><thead><tr><th>Pesanan</th><th>Pelanggan</th><th>Produk</th><th>Total</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="orderList"></tbody></table></div>
     </section>
   </div>
+
+  <section class="card" style="margin-top:18px" id="orderRecap">
+    <h2>Rekap Pesanan untuk Dapur</h2>
+    <p class="note">Rekap otomatis menghitung jumlah menu dan nilai pesanan berdasarkan periode. Pesanan berstatus Dibatalkan tidak dihitung.</p>
+    <div class="recap-toolbar">
+      <label for="recapPeriod" style="margin:0;white-space:nowrap">Periode</label>
+      <select id="recapPeriod" onchange="renderRecap()">
+        <option value="all">Semua periode</option>
+        <option value="today">Hari ini</option>
+        <option value="month">Bulan ini</option>
+      </select>
+      <button class="btn" onclick="exportRecapCSV()">⬇ Unduh Rekap CSV</button>
+    </div>
+    <div class="recap-summary">
+      <div class="recap-stat"><span>Total kuantitas menu</span><b id="recapItemCount">0</b></div>
+      <div class="recap-stat"><span>Jumlah pesanan</span><b id="recapOrderCount">0</b></div>
+      <div class="recap-stat"><span>Nilai pesanan</span><b id="recapRevenue">Rp0</b></div>
+    </div>
+    <div class="recap-tabs">
+      <button class="tab active" id="recapMenuTab" onclick="setRecapView('menu')">Group by Menu</button>
+      <button class="tab" id="recapCustomerTab" onclick="setRecapView('customer')">Group by Pemesan</button>
+      <button class="tab" id="recapPairTab" onclick="setRecapView('pair')">Menu × Pemesan</button>
+    </div>
+    <div class="tablewrap recap-table"><table><thead id="recapHead"></thead><tbody id="recapBody"></tbody></table></div>
+  </section>
   <div class="footer">Data pesanan & produk disimpan di Firebase Firestore dan disinkronkan realtime antar perangkat.</div>
 </main>
 
@@ -416,6 +451,8 @@ window.catalog = catalog;
 window.orders = [];
 let orders = window.orders;
 let view = "active";
+let recapView = "menu";
+let editingOrderId = null;
 let appStarted = false;
 
 const rp = n => new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(Number(n)||0);
@@ -440,8 +477,10 @@ function addProductLine(data={name:"",qty:1,price:0}){
   const wrap=document.getElementById("products");
   const row=document.createElement("div");
   row.className="product-row";
-  const options='<option value="">Pilih produk</option>'+catalog.map(p=>`<option value="${esc(p.name)}" ${p.name===data.name?"selected":""}>${esc(p.name)} — ${rp(p.price)}</option>`).join("");
-  row.innerHTML=`<select onchange="syncPrice(this)">${options}</select><input type="number" min="1" value="${data.qty||1}" oninput="calcTotal()"><input type="number" min="0" value="${data.price||0}" oninput="calcTotal()" placeholder="Harga"><button type="button" class="remove" onclick="this.parentElement.remove();calcTotal()" title="Hapus">×</button>`;
+  let productOptions=catalog.map(p=>`<option value="${esc(p.name)}" ${p.name===data.name?"selected":""}>${esc(p.name)} — ${rp(p.price)}</option>`).join("");
+  if(data.name && !catalog.some(p=>p.name===data.name)) productOptions+=`<option value="${esc(data.name)}" selected>${esc(data.name)} — ${rp(data.price)} (produk lama)</option>`;
+  const options='<option value="">Pilih produk</option>'+productOptions;
+  row.innerHTML=`<select onchange="syncPrice(this)">${options}</select><input type="number" min="1" value="${data.qty||1}" oninput="calcTotal()"><input type="number" min="0" value="${data.price??0}" oninput="calcTotal()" placeholder="Harga"><button type="button" class="remove" onclick="this.parentElement.remove();calcTotal()" title="Hapus">×</button>`;
   wrap.appendChild(row);
   calcTotal();
 }
@@ -466,36 +505,95 @@ document.getElementById("orderForm").addEventListener("submit", async e => {
   const items = getFormProducts();
   if(!items.length){alert("Tambahkan minimal 1 produk.");return}
   const total = items.reduce((a,x)=>a+x.qty*x.price,0);
-  const newOrder = {
-    id: "DA-"+Date.now().toString().slice(-6),
-    date: new Date().toISOString(),
-    customer: customer.value.trim(),
-    phone: phone.value.trim(),
-    address: address.value.trim(),
-    notes: notes.value.trim(),
-    items, total, status: "Baru"
+  const now = new Date().toISOString();
+  const formData = {
+    customer: document.getElementById("customer").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    address: document.getElementById("address").value.trim(),
+    notes: document.getElementById("notes").value.trim(),
+    items, total
   };
-  orders.unshift(newOrder);
-  save();
-  if(window.firebaseReady && window.firebaseAuth?.currentUser){
-    try{ await window.firebaseAddOrder(newOrder); setFirebaseStatus("Firebase aktif"); }
-    catch(err){ console.error(err); setFirebaseStatus("Firebase gagal"); alert("Pesanan tersimpan lokal, tapi gagal ke Firebase."); }
+  const submitBtn = document.getElementById("orderSubmitBtn");
+  submitBtn.disabled = true;
+  let syncFailed = false;
+  try {
+    if(editingOrderId){
+      const existing = orders.find(o=>o.id===editingOrderId);
+      if(!existing){alert("Pesanan yang akan diedit tidak ditemukan. Daftar pesanan akan diperbarui.");cancelEdit();return;}
+      Object.assign(existing, formData, {updatedAt:now});
+      save();
+      if(window.firebaseReady && window.firebaseAuth?.currentUser){
+        try{ await window.firebaseUpdateOrder(editingOrderId, formData); setFirebaseStatus("Firebase aktif"); }
+        catch(err){ console.error(err); syncFailed = true; setFirebaseStatus("Firebase gagal"); }
+      }
+      cancelEdit();
+      render();
+      alert(syncFailed ? "Perubahan tersimpan di perangkat ini, tetapi gagal disinkronkan ke Firebase. Periksa koneksi lalu coba edit kembali." : (window.firebaseAuth?.currentUser ? "Perubahan pesanan berhasil disimpan ke Firebase." : "Perubahan pesanan berhasil disimpan lokal."));
+    } else {
+      const newOrder = {
+        id: "DA-"+Date.now().toString().slice(-6),
+        date: now,
+        ...formData,
+        status: "Baru"
+      };
+      orders.unshift(newOrder);
+      save();
+      if(window.firebaseReady && window.firebaseAuth?.currentUser){
+        try{ await window.firebaseAddOrder(newOrder); setFirebaseStatus("Firebase aktif"); }
+        catch(err){ console.error(err); syncFailed = true; setFirebaseStatus("Firebase gagal"); }
+      }
+      resetOrderForm();
+      render();
+      alert(syncFailed ? "Pesanan tersimpan di perangkat ini, tetapi gagal disinkronkan ke Firebase." : (window.firebaseAuth?.currentUser ? "Pesanan berhasil disimpan ke Firebase." : "Pesanan berhasil disimpan lokal."));
+    }
+  } finally {
+    submitBtn.disabled = false;
   }
-  e.target.reset();
-  document.getElementById("products").innerHTML="";
-  addProductLine();
-  render();
-  alert(window.firebaseAuth?.currentUser ? "Pesanan berhasil disimpan ke Firebase." : "Pesanan berhasil disimpan lokal.");
 });
 
-function render(){renderOrders();updateStats()}
+function resetOrderForm(){
+  editingOrderId = null;
+  document.getElementById("orderForm").reset();
+  document.getElementById("products").innerHTML="";
+  addProductLine();
+  document.getElementById("orderFormTitle").textContent="Pesanan Baru";
+  document.getElementById("orderSubmitBtn").textContent="Simpan Pesanan";
+  document.getElementById("cancelEditBtn").hidden=true;
+  calcTotal();
+}
+
+function editOrder(id){
+  const o=orders.find(x=>x.id===id);
+  if(!o){alert("Pesanan tidak ditemukan.");return;}
+  editingOrderId=id;
+  document.getElementById("customer").value=o.customer||"";
+  document.getElementById("phone").value=o.phone||"";
+  document.getElementById("address").value=o.address||"";
+  document.getElementById("notes").value=o.notes||"";
+  const productBox=document.getElementById("products");
+  productBox.innerHTML="";
+  (Array.isArray(o.items)?o.items:[]).forEach(item=>addProductLine(item));
+  if(!o.items?.length)addProductLine();
+  document.getElementById("orderFormTitle").textContent="Edit Pesanan — "+o.id;
+  document.getElementById("orderSubmitBtn").textContent="Simpan Perubahan";
+  document.getElementById("cancelEditBtn").hidden=false;
+  calcTotal();
+  document.getElementById("orderForm").scrollIntoView({behavior:"smooth",block:"start"});
+  document.getElementById("customer").focus({preventScroll:true});
+}
+
+function cancelEdit(){resetOrderForm();}
+window.editOrder=editOrder;
+window.cancelEdit=cancelEdit;
+
+function render(){renderOrders();updateStats();renderRecap()}
 function renderOrders(){
   const q=document.getElementById("search").value.toLowerCase(), f=document.getElementById("filter").value;
-  let list=orders.filter(o=>o.customer.toLowerCase().includes(q)&&(f==="all"||o.status===f));
+  let list=orders.filter(o=>String(o.customer||"").toLowerCase().includes(q)&&(f==="all"||o.status===f));
   list=list.filter(o=>view==="active"? !["Selesai","Dibatalkan"].includes(o.status):["Selesai","Dibatalkan"].includes(o.status));
   const body=document.getElementById("orderList");
   if(!list.length){body.innerHTML='<tr><td colspan="6" class="empty">Belum ada pesanan yang sesuai.</td></tr>';return}
-  body.innerHTML=list.map(o=>`<tr><td><b>${o.id}</b><br><span class="note">${new Date(o.date).toLocaleString("id-ID")}</span></td><td>${esc(o.customer)}<br><span class="note">${esc(o.phone)}</span></td><td>${o.items.map(x=>`${esc(x.name)} × ${x.qty}`).join("<br>")}</td><td><b>${rp(o.total)}</b></td><td><select class="status ${statusClass(o.status)}" onchange="changeStatus('${o.id}',this.value)"><option ${o.status==="Baru"?"selected":""}>Baru</option><option ${o.status==="Diproses"?"selected":""}>Diproses</option><option ${o.status==="Dikirim"?"selected":""}>Dikirim</option><option ${o.status==="Selesai"?"selected":""}>Selesai</option><option ${o.status==="Dibatalkan"?"selected":""}>Dibatalkan</option></select></td><td><button class="btn" onclick="showDetail('${o.id}')">Detail</button></td></tr>`).join("");
+  body.innerHTML=list.map(o=>`<tr><td><b>${esc(o.id)}</b><br><span class="note">${new Date(o.date).toLocaleString("id-ID")}</span></td><td>${esc(o.customer)}<br><span class="note">${esc(o.phone)}</span></td><td>${(o.items||[]).map(x=>`${esc(x.name)} × ${Number(x.qty)||0}`).join("<br>")}</td><td><b>${rp(o.total)}</b></td><td><select class="status ${statusClass(o.status)}" onchange="changeStatus('${o.id}',this.value)"><option ${o.status==="Baru"?"selected":""}>Baru</option><option ${o.status==="Diproses"?"selected":""}>Diproses</option><option ${o.status==="Dikirim"?"selected":""}>Dikirim</option><option ${o.status==="Selesai"?"selected":""}>Selesai</option><option ${o.status==="Dibatalkan"?"selected":""}>Dibatalkan</option></select></td><td><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn small" onclick="showDetail('${o.id}')">Detail</button><button class="btn small" onclick="editOrder('${o.id}')">Edit</button></div></td></tr>`).join("");
 }
 
 async function changeStatus(id,s){
@@ -512,6 +610,98 @@ function showDetail(id){
   alert(`${o.id}\nPelanggan: ${o.customer}\nHP: ${o.phone}\nAlamat: ${o.address||"-"}\nProduk: ${o.items.map(x=>x.name+" x "+x.qty+" = "+rp(x.qty*x.price)).join("\\n")}\nTotal: ${rp(o.total)}\nStatus: ${o.status}\nCatatan: ${o.notes||"-"}`);
 }
 function setView(v){view=v;activeTab.classList.toggle("active",v==="active");historyTab.classList.toggle("active",v==="history");renderOrders()}
+
+function setRecapView(v){
+  recapView=v;
+  document.getElementById("recapMenuTab").classList.toggle("active",v==="menu");
+  document.getElementById("recapCustomerTab").classList.toggle("active",v==="customer");
+  document.getElementById("recapPairTab").classList.toggle("active",v==="pair");
+  renderRecap();
+}
+window.setRecapView=setRecapView;
+
+function getRecapOrders(){
+  const period=document.getElementById("recapPeriod")?.value||"all";
+  const now=new Date();
+  return orders.filter(o=>{
+    if(o.status==="Dibatalkan")return false;
+    const date=new Date(o.date||o.createdAt||0);
+    if(Number.isNaN(date.getTime()))return period==="all";
+    if(period==="today")return date.toDateString()===now.toDateString();
+    if(period==="month")return date.getMonth()===now.getMonth()&&date.getFullYear()===now.getFullYear();
+    return true;
+  });
+}
+
+function renderRecap(){
+  const head=document.getElementById("recapHead"), body=document.getElementById("recapBody");
+  if(!head||!body)return;
+  const source=getRecapOrders();
+  const itemCount=source.reduce((sum,o)=>sum+(o.items||[]).reduce((n,item)=>n+(Number(item.qty)||0),0),0);
+  const totalValue=source.reduce((sum,o)=>sum+(Number(o.total)||0),0);
+  document.getElementById("recapItemCount").textContent=itemCount.toLocaleString("id-ID");
+  document.getElementById("recapOrderCount").textContent=source.length.toLocaleString("id-ID");
+  document.getElementById("recapRevenue").textContent=rp(totalValue);
+
+  if(recapView==="menu"){
+    const groups=new Map();
+    source.forEach(o=>(o.items||[]).forEach(item=>{
+      const name=String(item.name||"Tanpa nama menu").trim()||"Tanpa nama menu";
+      const key=name.toLocaleLowerCase("id-ID");
+      const g=groups.get(key)||{name,qty:0,orderIds:new Set(),value:0};
+      g.qty+=Number(item.qty)||0;g.orderIds.add(o.id);g.value+=(Number(item.qty)||0)*(Number(item.price)||0);groups.set(key,g);
+    }));
+    const rows=[...groups.values()].sort((a,b)=>b.qty-a.qty||a.name.localeCompare(b.name,"id"));
+    head.innerHTML="<tr><th>Menu</th><th>Total Qty</th><th>Jumlah Pesanan</th><th>Nilai</th></tr>";
+    body.innerHTML=rows.length?rows.map(g=>`<tr><td><b>${esc(g.name)}</b></td><td>${g.qty.toLocaleString("id-ID")}</td><td>${g.orderIds.size.toLocaleString("id-ID")}</td><td><b>${rp(g.value)}</b></td></tr>`).join(""):'<tr><td colspan="4" class="recap-empty">Belum ada data pada periode ini.</td></tr>';
+  } else if(recapView==="customer"){
+    const groups=new Map();
+    source.forEach(o=>{
+      const name=String(o.customer||"Tanpa nama").trim()||"Tanpa nama";
+      const key=name.toLocaleLowerCase("id-ID");
+      const g=groups.get(key)||{name,orders:new Set(),qty:0,value:0,menus:new Map()};
+      g.orders.add(o.id);g.value+=Number(o.total)||0;
+      (o.items||[]).forEach(item=>{const menu=String(item.name||"Tanpa nama menu");g.qty+=Number(item.qty)||0;g.menus.set(menu,(g.menus.get(menu)||0)+(Number(item.qty)||0));});
+      groups.set(key,g);
+    });
+    const rows=[...groups.values()].sort((a,b)=>b.value-a.value||a.name.localeCompare(b.name,"id"));
+    head.innerHTML="<tr><th>Nama Pemesan</th><th>Menu & Qty</th><th>Total Qty</th><th>Jumlah Pesanan</th><th>Total Nilai</th></tr>";
+    body.innerHTML=rows.length?rows.map(g=>`<tr><td><b>${esc(g.name)}</b></td><td>${[...g.menus.entries()].sort((a,b)=>a[0].localeCompare(b[0],"id")).map(([name,qty])=>`${esc(name)} × ${qty}`).join("<br>")}</td><td>${g.qty.toLocaleString("id-ID")}</td><td>${g.orders.size.toLocaleString("id-ID")}</td><td><b>${rp(g.value)}</b></td></tr>`).join(""):'<tr><td colspan="5" class="recap-empty">Belum ada data pada periode ini.</td></tr>';
+  } else {
+    const groups=new Map();
+    source.forEach(o=>(o.items||[]).forEach(item=>{
+      const menu=String(item.name||"Tanpa nama menu").trim()||"Tanpa nama menu";
+      const customerName=String(o.customer||"Tanpa nama").trim()||"Tanpa nama";
+      const key=menu.toLocaleLowerCase("id-ID")+"\u0000"+customerName.toLocaleLowerCase("id-ID");
+      const g=groups.get(key)||{menu,customer:customerName,qty:0,orderIds:new Set(),value:0};
+      g.qty+=Number(item.qty)||0;g.orderIds.add(o.id);g.value+=(Number(item.qty)||0)*(Number(item.price)||0);groups.set(key,g);
+    }));
+    const rows=[...groups.values()].sort((a,b)=>a.menu.localeCompare(b.menu,"id")||a.customer.localeCompare(b.customer,"id"));
+    head.innerHTML="<tr><th>Menu</th><th>Nama Pemesan</th><th>Total Qty</th><th>Jumlah Pesanan</th><th>Nilai</th></tr>";
+    body.innerHTML=rows.length?rows.map(g=>`<tr><td><b>${esc(g.menu)}</b></td><td>${esc(g.customer)}</td><td>${g.qty.toLocaleString("id-ID")}</td><td>${g.orderIds.size.toLocaleString("id-ID")}</td><td><b>${rp(g.value)}</b></td></tr>`).join(""):'<tr><td colspan="5" class="recap-empty">Belum ada data pada periode ini.</td></tr>';
+  }
+}
+
+function exportRecapCSV(){
+  const source=getRecapOrders();
+  let rows=[], filename="rekap";
+  if(recapView==="menu"){
+    const groups=new Map();
+    source.forEach(o=>(o.items||[]).forEach(item=>{const name=String(item.name||"Tanpa nama menu").trim()||"Tanpa nama menu";const key=name.toLocaleLowerCase("id-ID");const g=groups.get(key)||{name,qty:0,orders:new Set(),value:0};g.qty+=Number(item.qty)||0;g.orders.add(o.id);g.value+=(Number(item.qty)||0)*(Number(item.price)||0);groups.set(key,g);}));
+    rows=[["Menu","Total Qty","Jumlah Pesanan","Nilai"],...[...groups.values()].sort((a,b)=>b.qty-a.qty).map(g=>[g.name,g.qty,g.orders.size,g.value])];filename="rekap-menu";
+  }else if(recapView==="customer"){
+    const groups=new Map();
+    source.forEach(o=>{const name=String(o.customer||"Tanpa nama").trim()||"Tanpa nama";const key=name.toLocaleLowerCase("id-ID");const g=groups.get(key)||{name,qty:0,orders:new Set(),value:0,menus:new Map()};g.orders.add(o.id);g.value+=Number(o.total)||0;(o.items||[]).forEach(item=>{g.qty+=Number(item.qty)||0;g.menus.set(item.name,(g.menus.get(item.name)||0)+(Number(item.qty)||0));});groups.set(key,g);});
+    rows=[["Nama Pemesan","Menu & Qty","Total Qty","Jumlah Pesanan","Total Nilai"],...[...groups.values()].sort((a,b)=>b.value-a.value).map(g=>[g.name,[...g.menus].map(([n,q])=>`${n} x ${q}`).join(" | "),g.qty,g.orders.size,g.value])];filename="rekap-pemesan";
+  }else{
+    const groups=new Map();
+    source.forEach(o=>(o.items||[]).forEach(item=>{const menu=String(item.name||"Tanpa nama menu").trim()||"Tanpa nama menu";const name=String(o.customer||"Tanpa nama").trim()||"Tanpa nama";const key=menu.toLocaleLowerCase("id-ID")+"\u0000"+name.toLocaleLowerCase("id-ID");const g=groups.get(key)||{menu,customer:name,qty:0,orders:new Set(),value:0};g.qty+=Number(item.qty)||0;g.orders.add(o.id);g.value+=(Number(item.qty)||0)*(Number(item.price)||0);groups.set(key,g);}));
+    rows=[["Menu","Nama Pemesan","Total Qty","Jumlah Pesanan","Nilai"],...[...groups.values()].sort((a,b)=>a.menu.localeCompare(b.menu,"id")||a.customer.localeCompare(b.customer,"id")).map(g=>[g.menu,g.customer,g.qty,g.orders.size,g.value])];filename="rekap-menu-pemesan";
+  }
+  const csv="\ufeff"+rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\r\n");
+  const a=document.createElement("a");const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.href=url;a.download=`dapur-alwins-${filename}-${document.getElementById("recapPeriod").value}-${new Date().toISOString().slice(0,10)}.csv`;a.click();URL.revokeObjectURL(url);
+}
+window.exportRecapCSV=exportRecapCSV;
 
 function updateStats(){
   activeCount.textContent = orders.filter(o => !["Selesai","Dibatalkan"].includes(o.status)).length;
@@ -535,7 +725,7 @@ function exportCSV(period){
   if(period==="today")data=data.filter(o=>new Date(o.date).toDateString()===now.toDateString());
   if(period==="month")data=data.filter(o=>{const d=new Date(o.date);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear()});
   const rows=[["ID","Tanggal","Pelanggan","No HP","Alamat","Produk","Total","Status","Catatan"],...data.map(o=>[o.id,new Date(o.date).toLocaleString("id-ID"),o.customer,o.phone,o.address,o.items.map(x=>`${x.name} x ${x.qty}`).join(" | "),o.total,o.status,o.notes])];
-  const csv="\ufeff"+rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\\r\\n");
+  const csv="\ufeff"+rows.map(r=>r.map(v=>`"${String(v??"").replace(/"/g,'""')}"`).join(",")).join("\r\n");
   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));a.download=`dapur-alwins-${period}-${new Date().toISOString().slice(0,10)}.csv`;a.click();
 }
 
